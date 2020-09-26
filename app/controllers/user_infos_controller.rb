@@ -3,13 +3,15 @@ class UserInfosController < ApplicationController
   before_action :search_user_info, only: [:index, :search]
   
   def index
-    @user_infos = UserInfo.all.all.order("created_at DESC")
+    @user_infos = UserInfo.all.order(id: "DESC")
     set_user_info_column
   end
 
   def search
-    @results = @p.result.includes(:area)
+    @results = @p.result
   end
+
+  
 
   def new
     @user_info = UserInfo.new
@@ -39,9 +41,7 @@ class UserInfosController < ApplicationController
   end
 
   def destroy
-    unless user.user_signed_id?
-      user_info.destroy
-    end
+    
   end
 
 
@@ -53,13 +53,16 @@ class UserInfosController < ApplicationController
 
   private
 
-  def set_user_info_column
-    @user_info_area_id = UserInfo.select("area_id").distinct  # 重複なくnameカラムのデータを取り出す
+  def search_user_info
+    @p = UserInfo.ransack(params[:q])
   end
 
-  def search_user_info
-    @p = UserInfo.ransack(params[:q])  # 検索オブジェクトを生成
+  def set_user_info_column
+    @user_info_area = UserInfo.select("area_id").distinct  # 重複なくnameカラムのデータを取り出す
+    @user_info_people_num = UserInfo.select("people_num_id").distinct  # 重複なくnameカラムのデータを取り出す
   end
+
+  
 
   def user_info_params
     params.require(:user_info).permit(:gender, :image, :text, :people_num_id, :area_id).merge(user_id: current_user.id)
