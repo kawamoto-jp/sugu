@@ -1,0 +1,61 @@
+<header>
+  <div class="border">
+    <h2 class="title">I - s e k i</h2>
+    <ul class="right_header">
+    <% if user_signed_in? %>
+      <li class="user_name">
+      <%= current_user.nickname %>さん、まいど！
+      </li>
+      <li class="logout">
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn' %>
+      </li>
+      <li class="new_user_info">
+      <%= link_to 'マイページ', pre_page_user_infos_path %>
+      </li>
+    <% else %>
+      <li class="user_name">
+      <li class="login">
+      <%= link_to 'ログイン', new_user_session_path %>
+      </li>
+      <li class="signin">
+      <%= link_to '新規登録', new_user_registration_path %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</header>
+
+<div class="mypage">
+  <div class="mypage_btn">
+    <div class="new_user_info btn">
+    <%= link_to '情報を入力しよう！', new_user_info_path %>
+    </div>
+    
+
+    <% @user_infos.each do |user_info| %>
+    <% if current_user.id == user_info.user_id %>
+    <div class="edit_user_info btn">
+    <%= link_to '今の情報を編集する！', edit_user_info_path(user_info.id) %>
+    </div>
+    <div class="to_root btn">
+    <%= link_to 'トップページへ戻る', root_path %>
+    </div>
+
+  </div>
+  
+  <div class='pre_user_infos'>
+    <div class="pre_user_img">
+    <%= image_tag user_info.image.variant(resize:'400x400'), class: "user_img" if user_info.image.attached? %>
+    </div>
+    <div class="ul_top">
+      <div class="nickname"><%= user_info.user.nickname %>|</div>
+      <div class="area"><%= user_info.area_id %>|</div>
+      <div class="people_num"><%= user_info.people_num_id %>人</div>
+    </div>
+    <div class="down">
+      <p class="user_info_text"><%= user_info.text %></p>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% end %>

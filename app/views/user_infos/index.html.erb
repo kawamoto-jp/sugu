@@ -1,0 +1,73 @@
+<header>
+  <div class="border">
+    <h2 class="title">I - s e k i</h2>
+    <ul class="right_header">
+    <% if user_signed_in? %>
+      <li class="user_name">
+      <%= current_user.nickname %>さん、まいど！
+      </li>
+      <li class="logout">
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn' %>
+      </li>
+      <li class="new_user_info">
+      <%= link_to 'マイページ', pre_page_user_infos_path %>
+      </li>
+    <% else %>
+      <li class="user_name">
+      <li class="login">
+      <%= link_to 'ログイン', new_user_session_path %>
+      </li>
+      <li class="signin">
+      <%= link_to '新規登録', new_user_registration_path %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</header>
+
+<h1>
+  お好みのグループ検索
+</h1>
+<%= search_form_for @p, url: user_infos_search_path do |f| %>
+  <%= f.label :area_id_eq, 'エリア' %>
+  <%= f.collection_select :area_id_eq, @user_info_area_id, :area_id, :area_id,  include_blank: '指定なし' %>
+  <br>
+  <%= f.submit '検索' %>
+<% end %>
+
+
+
+
+
+
+
+
+<div class="top_page">
+  <h2>現在ログインしているグループ一覧！</h2>
+    <ul class="groups">
+      <% @user_infos.each do |user_info| %>
+        <% link_to %>
+        <li class="list">
+          <div class='user_infos'>
+            <div class="user_img">
+            <%= image_tag user_info.image.variant(resize:'400x400'), class: "user_img" if user_info.image.attached? %>
+              <% if user_signed_in? && user_info.user_id != current_user.id %>
+              <%= link_to 'フォローする', "#", class: "follow_btn" %>
+              <% end %>
+              <% unless user_signed_in? %>
+              <%= link_to 'フォローする', new_user_session_path, class: "follow_btn" %>
+              <% end %>
+              <div class="top">
+                <p class="nickname"><%= user_info.user.nickname %>|</p>
+                <p class="area"><%= user_info.area_id %>|</p>
+                <p class="people_num"><%= user_info.people_num_id %>人</p>
+              </div>
+              <div class="down">
+                <p class="user_info_text"><%= user_info.text %></p>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+</div>

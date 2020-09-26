@@ -1,0 +1,47 @@
+.border {
+  height: 100px;
+  width: 80%;
+  margin: 0 auto;
+  border-bottom: 5px solid palevioletred;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.groups {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+}
+
+.list {
+  margin-bottom: 40px;
+}
+
+.user_infos{
+  position: relative;
+}
+
+.follow_btn {
+  background-color: blue;
+  border: 1px solid blue;
+  border-radius: 5px;
+  position: absolute;
+  color: aliceblue;
+  top: 0;
+  right: 0;
+}
+
+.user_img {
+  height: 20hv;
+}
+
+.top {
+  display: flex;
+}
+
