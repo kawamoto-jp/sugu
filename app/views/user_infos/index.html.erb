@@ -25,18 +25,24 @@
   </div>
 </header>
 
-<h2>
-  待機中グループを検索！
-</h2>
-<%= search_form_for @p, url: user_infos_search_path do |f| %>
-  <%= f.label :area_id_eq, 'エリア' %>
-  <%= f.collection_select :area_id_eq, @user_info_area, :area_id, :area_id,  include_blank: '指定なし' %>
-  <br>
-  <%= f.label :people_num_id_eq, '人数' %>
-  <%= f.collection_select :people_num_id_eq, @user_info_people_num, :people_num_id, :people_num_id,  include_blank: '指定なし' %>人
-  <br>
-  <%= f.submit '検索' %>
-<% end %>
+<div class="waiting">
+  <h2>
+    待機中グループを検索！
+  </h2>
+  <%= search_form_for @p, url: user_infos_search_path do |f| %>
+    <div class="try">
+    <%= f.label :area_id_eq, 'エリア' %>
+    <%= f.collection_select :area_id_eq, @user_info_area, :area_id, :area_id,  include_blank: '指定なし' %>
+    </div>
+    <br>
+    <div class="try">
+    <%= f.label :people_num_id_eq, '人数' %>
+    <%= f.collection_select :people_num_id_eq, @user_info_people_num, :people_num_id, :people_num_id,  include_blank: '指定なし' %>人
+    </div>
+    <br>
+    <%= f.submit '検索' %>
+  <% end %>
+</div>
 
 
 
@@ -46,19 +52,22 @@
 
 
 <div class="top_page">
-  <h2>現在ログインしているグループ一覧！</h2>
+  <h2 class="login_now">現在ログインしているグループ一覧！</h2>
     <ul class="groups">
       <% @user_infos.each do |user_info| %>
         <li class="list">
           <div class='user_infos'>
             <div class="user_img">
-            <%= image_tag user_info.image.variant(resize:'400x400'), class: "user_img" if user_info.image.attached? %>
+            <!-- ネットのフォローボタン  -->
+              <%= image_tag user_info.image.variant(resize:'400x400'), class: "user_img" if user_info.image.attached? %>
               <% if user_signed_in? && user_info.user_id != current_user.id %>
-              <%= link_to 'フォローする', "#", class: "follow_btn" %>
+                <% if user_info.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+                  <p class="follow_btn"><%=link_to "お気に入り済", user_info_favorites_path(user_info.id), class: "white", method: :delete %></p>
+                <% else %>
+                  <p class="follow_btn"><%=link_to "お気に入り", user_info_favorites_path(user_info.id), class: "white", method: :post %></p>
+                <% end %>
               <% end %>
-              <% unless user_signed_in? %>
-              <%= link_to 'フォローする', new_user_session_path, class: "follow_btn" %>
-              <% end %>
+            <!-- ネットのフォローボタン -->
               <div class="top">
                 <p class="nickname"><%= user_info.user.nickname %>|</p>
                 <p class="area"><%= user_info.area_id %>|</p>
@@ -73,3 +82,6 @@
       <% end %>
     </ul>
 </div>
+
+
+<%# ↓↓↓自分で作ったフォローボタン↓↓↓  %>

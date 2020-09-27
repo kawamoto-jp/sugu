@@ -33,18 +33,39 @@
   </div>
 </div>
 <%# 検索結果の個数で条件分岐 %>
-<% if @results.length != 0 %>
-  <% @results.each do |result| %>
-    <td>
-    <br>
-    <li>
-      <%= image_tag result.image.variant(resize:'400x400'), class: "user_img" if result.image.attached? %>
-      <%= result.user.nickname %> |
-      <%= result.area_id %> |
-      <%= result.people_num_id %>人
-      <%= result.text %>
-    </li>
-  <% end %>
+<div class="top_page">
+  <% if @results.length != 0 %>
+    <ul class="groups">
+      <% @results.each do |result| %>
+        <li class="list">
+          <div class='user_infos'>
+            <div class="user_img">
+            <!-- ネットのフォローボタン  -->
+            <%= image_tag result.image.variant(resize:'400x400'), class: "user_img" if result.image.attached? %>
+            <% if user_signed_in? && result.user_id != current_user.id %>
+              <% if result.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+                <p class="follow_btn"><%=link_to "お気に入り済", user_info_favorites_path(result.id), class: "white", method: :delete %></p>
+              <% else %>
+                <p class="follow_btn"><%=link_to "お気に入り", user_info_favorites_path(result.id), class: "white", method: :post %></p>
+              <% end %>
+            <% end %>
+            <!-- ネットのフォローボタン  -->
+              <div class="top">
+                <p class="nickname"><%= result.user.nickname %>|</p>
+                <p class="area"><%= result.area_id %>|</p>
+                <p class="people_num"><%= result.people_num_id %>人</p>
+              </div>
+              <div class="down">
+                <p class="user_info_text"><%= result.text %></p>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+</div>
 <% else %>
   該当するグループはいません
 <% end %>
+
+

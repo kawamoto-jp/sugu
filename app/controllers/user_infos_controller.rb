@@ -49,6 +49,18 @@ class UserInfosController < ApplicationController
     @user_infos = UserInfo.all
   end
 
+  # ==============追加================
+  def follows
+    user_info = UserInfo.find(params[:id])
+    @user_infos = user_info.followings
+  end
+
+  def followers
+    user_info = UserInfo.find(params[:id])
+    @user_infos = user_info.followers
+  end
+# ==============追加================
+
 
 
   private

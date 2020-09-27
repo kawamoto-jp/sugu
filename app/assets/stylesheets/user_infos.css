@@ -45,3 +45,19 @@
   display: flex;
 }
 
+.white {
+  color: white;
+}
+
+.waiting {
+  text-align: center;
+}
+
+.login_now {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.try {
+  font-size: 20px;
+}
