@@ -26,6 +26,9 @@
 </header>
 
 <div class="waiting">
+  <div class="proportion">
+    <h2>現在の男女比</h2>
+    男 <%= @promotion_male %> : 女 <%= @promotion_female %>
   <h2>
     待機中グループを検索！
   </h2>
@@ -52,7 +55,7 @@
 
 
 <div class="top_page">
-  <h2 class="login_now">現在ログインしているグループ一覧！</h2>
+  <h2 class="login_now">待機中のグループ一覧！</h2>
     <ul class="groups">
       <% @user_infos.each do |user_info| %>
         <li class="list">

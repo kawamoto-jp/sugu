@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get 'user_infos/search'
 
+  resources :rooms
   resources :user_infos do
     collection do
       get 'pre_page'
