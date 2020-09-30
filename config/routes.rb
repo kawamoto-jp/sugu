@@ -15,9 +15,10 @@ Rails.application.routes.draw do
       get 'pre_page'
       get 'false'
     end
-    resource :favorites, only: [:create, :destroy]
+    resources :favorites, only: [:index, :create, :destroy]
     # resources :relationships, only: [:create, :destroy]
     # get :follows, on: :member # 追加
     # get :followers, on: :member
   end
+  resources :users 
 end

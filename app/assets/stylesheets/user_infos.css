@@ -1,11 +1,12 @@
+
 .border {
   height: 100px;
   width: 80%;
   margin: 0 auto;
-  border-bottom: 5px solid palevioletred;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding-top: 50px;
 }
 
 .title {
@@ -28,8 +29,16 @@
 }
 
 .follow_btn {
-  background-color: blue;
-  border: 1px solid blue;
+  background-color: #806000;
+  border-radius: 5px;
+  position: absolute;
+  color: aliceblue;
+  top: 0;
+  right: 0;
+}
+
+.followed_btn {
+  background-color: gray;
   border-radius: 5px;
   position: absolute;
   color: aliceblue;
@@ -43,7 +52,16 @@
 
 .top {
   display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+  font-weight: bold;
 }
+
+.down {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 
 .white {
   color: white;
@@ -53,11 +71,338 @@
   text-align: center;
 }
 
+.flex {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
 .login_now {
   margin-top: 50px;
-  text-align: center;
+  width: 70%;
+  border-bottom: 2px solid #806000;
+  font-size: 30px;
+  color: #806000;
 }
 
 .try {
   font-size: 20px;
 }
+
+select {
+  width: 100px;
+  height: 40px;
+}
+
+.title {
+  color: #ffffff;
+}
+
+.proportion {
+  padding-bottom: 30px;
+}
+
+.sex {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.top_main {
+  padding: 50px;
+  margin: 0 auto;
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.right {
+  width: 40%;
+  padding: 30px 40px;
+  text-align: center;
+  background-color:rgba(255,255,255,0.7);
+  border-radius: 10px;
+}
+
+.otoko {
+  color: blue;
+}
+
+.onna {
+  color: red;
+}
+
+.left {
+  width: 70%;
+}
+
+
+.search_btn {
+  display       : inline-block;
+  border-radius : 20%;          /* 角丸       */
+  font-size     : 12pt;        /* 文字サイズ */
+  font-weight: bold;
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 14px 30px;   /* 余白       */
+  background    : #ffffff;     /* 背景色     */
+  color         : black;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  opacity       : 0.9;         /* 透明度     */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+}
+
+.search_btn:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  opacity       : 1;           /* カーソル時透明度 */
+}
+
+.what_app {
+  padding: 50px 0 25px 0 ;
+  display: flex;
+  justify-content: center;
+}
+
+.why_app {
+  padding: 25px 0 50px 0 ;
+  display: flex;
+  justify-content: center;
+}
+
+.explain {
+  margin-top: 30px;
+  width: 40%;
+  font-size: 15px;
+  border: 1px solid #806000;
+  color: #806000;
+  padding: 20px 30px;
+  border-radius: 4px;
+  height: 25%;
+}
+
+
+.top_page {
+  padding: 100px 0;
+}
+
+.only_different_gender {
+  text-align: center;
+}
+
+.search_top {
+  padding-top: 50px;
+}
+
+.search_top h1 {
+  color: #b33e5c;
+}
+
+.root_path {
+  padding-top: 30px;
+  font-size: 20px;
+}
+
+.sorry {
+  text-align: center;
+  font-size: 20px;
+  padding: 0;
+}
+
+
+
+
+.header_btn {
+  display       : inline-block;
+  border-radius : 5px;          /* 角丸       */
+  font-size     : 12pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 10px 20px;   /* 余白       */
+  background    : #b33e5c;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  opacity       : 0.9;         /* 透明度     */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 3px 3px 2px #666666;  /* 影の設定 */
+}
+
+.right_header {
+  width: 500px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.user_name {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.content {
+  background-image: url(https://mensdrip.com/wp-content/uploads/2015/06/72.jpg);
+  background-size: cover;
+}
+
+.nickname, .area, .people_num {
+  padding: 0;
+}
+
+.user_info_text {
+  font-size: 20px;
+  padding: 0;
+}
+
+.mypage {
+  padding: 118px 40px;
+}
+
+.my {
+  width: 30%;
+  text-align: center;
+  background-color:rgba(255,255,255,0.7);
+  border-radius: 10px;
+  padding: 30px 20px;
+  margin-left: 100px;
+}
+
+
+
+.mypage_btn {
+  display       : inline-block;
+  border-radius : 5px;          
+  font-size     : 12pt;      
+  text-align    : center;      
+  cursor        : pointer;    
+  padding       : 10px 20px;  
+  background    : #b33e5c;   
+  color         : #ffffff;  
+  opacity       : 0.9;     
+  transition    : .3s;      
+  box-shadow    : 3px 3px 2px #666666; 
+}
+
+.pre_user_infos {
+  padding: 100px 0;
+}
+
+/* new, edit */
+.user_info_contents {
+  height: 100vh;
+  width: 100vw;
+  background-image: url(https://kinarino.k-img.com/system/press_eye_catches/000/024/594/7c86a38b95b9d63c4341510a81e93c3416081362.jpg?1469499195);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user_info_main {
+  background-color:rgba(255,255,255,0.8);
+  border-radius: 10px;
+  padding: 30px 70px;
+}
+
+.indispensable {
+  color: red;
+  background-color: rgba(255,255,255,0.7);
+  padding: 3px 5px;
+  border-radius: 5px;
+  border: 1px solid red;
+}
+
+.user_field {
+  margin: 30px 0;
+}
+
+.weight-bold-text {
+  font-weight: bold;
+}
+
+.user_text {
+  font-size: 14px;
+  width: 100%;
+}
+
+.select-box {
+  height: 30px;
+}
+
+
+/* new, edit */
+
+/* user管理 */
+#error_explanation h2 {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.registration {
+  height: 100vh;
+  width: 100vw;
+  background-image: url(https://mensdrip.com/wp-content/uploads/2015/06/2557bf76ae78dd4062826d8f6a26c993.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.welcome {
+  padding: 20px 30px;
+  font-weight: bolder;
+  color: #ffffff;
+}
+
+.big_welcome {
+  font-size: 40px;
+}
+
+.small_welcome {
+  font-size: 15px;
+}
+
+.registration_user {
+  padding: 30px 40px;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 10px;
+}
+
+.field {
+  margin: 15px 0;
+}
+
+.btn {
+  display       : inline-block;
+  border-radius : 5px;          /* 角丸       */
+  font-size     : 10pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 5px 10px;   /* 余白       */
+  background    : #b33e5c;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  opacity       : 0.9;         /* 透明度     */
+  transition    : 0.3s;         /* なめらか変化 */
+  box-shadow    : 2px 2px 1px #666666;  /* 影の設定 */
+}
+
+.session {
+  height: 100vh;
+  width: 100vw;
+  background-image: url(https://mensdrip.com/wp-content/uploads/2015/06/18111fdb4db18a478e972af164604cd5.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.session_user {
+  padding: 30px 40px;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 10px;
+}
+
+/* user管理 */
+
+

@@ -1,65 +1,74 @@
-<header>
-  <div class="border">
-    <h2 class="title">I - s e k i</h2>
-    <ul class="right_header">
-    <% if user_signed_in? %>
-      <li class="user_name">
-      <%= current_user.nickname %>さん、まいど！
-      </li>
-      <li class="logout">
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn' %>
-      </li>
-      <li class="new_user_info">
-      <%= link_to 'マイページ', pre_page_user_infos_path %>
-      </li>
-    <% else %>
-      <li class="login">
-      <%= link_to 'ログイン', new_user_session_path %>
-      </li>
-      <li class="signin">
-      <%= link_to '新規登録', new_user_registration_path %>
-      </li>
-    <% end %>
-    </ul>
-  </div>
-</header>
-
-<div class="mypage">
-  <div class="mypage_btn">
-    <% @user_infos.each do |user_info| %>
-      <% if current_user.id == user_info.user_id %>
-      <div class="edit_user_info btn">
-      <%= link_to '今の情報を編集する！', edit_user_info_path(user_info.id) %>
+<div class="content">
+  <header>
+    <div class="border">
+      <%= link_to 'S U G U', root_path, class: 'title' %>
+      <ul class="right_header">
+      <% if user_signed_in? %>
+        <li class="user_name">
+        <%= current_user.nickname %>さん
+        </li>
+        <li class="logout">
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'header_btn' %>
+        </li>
+        <div class="to_root">
+        <%= link_to 'トップページへ戻る', root_path, class: 'mypage_btn' %>
+        </div><br>
+      <% else %>
+        <li class="signin">
+        <%= link_to '新規登録', new_user_registration_path, class: 'header_btn' %>
+        </li>
+        <li class="login">
+        <%= link_to 'ログイン', new_user_session_path, class: 'header_btn' %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </header>
+  <div class="mypage">
+    <div class="my">
+      <div class="mypage_btns">
+        <h2>マイページ</h2>
+        <div class="enter">
+        <%= link_to '情報を入力する', new_user_info_path, class: 'mypage_btn' %>
+        </div><br>
+        <% @user_infos.each do |user_info| %>
+        <% if current_user.id == user_info.user_id %>
+        <div class="edit_user_info">
+        <%= link_to '情報を編集する', edit_user_info_path(user_info.id), class: 'mypage_btn' %>
+        </div><br>
+        <div class="matchin_user">
+        <%= link_to 'マッチしたユーザー', new_room_path, class: 'mypage_btn' %>
+        </div><br>
       </div>
-      <div class="matchin_user btn">
-      <%= link_to 'マッチしたユーザー', new_room_path %>
-      </div>
-      <div class="to_root btn">
-      <%= link_to 'トップページへ戻る', root_path %>
     </div>
   </div>
   
-  <div class='pre_user_infos'>
-    <div class="pre_user_img">
-    <%= image_tag user_info.image.variant(resize:'400x400'), class: "user_img" if user_info.image.attached? %>
-    </div>
-    <div class="ul_top">
-      <div class="nickname"><%= user_info.user.nickname %>|</div>
-      <div class="area"><%= user_info.area_id %>|</div>
-      <div class="people_num"><%= user_info.people_num_id %>人</div>
-    </div>
-    <div class="down">
-      <p class="user_info_text"><%= user_info.text %></p>
-    </div>
+  
+  <%= link_to 'あああああ', user_info_favorites_path(user_info.id), class: 'mypage_btn' %>
+
+  
+</div>
+  
+<div class='pre_user_infos'>
+  <h2>あなたの現在登録している情報<h2>
+  <div class="pre_user_img">
+  <%= image_tag user_info.image.variant(resize:'400x400'), class: "user_img" if user_info.image.attached? %>
   </div>
-      <% end %>
+  <div class="ul_top">
+    <p class="nickname"><%= user_info.user.nickname %></p>
+    <span>/</span>
+    <p class="area"><%= user_info.area.name %></p>
+    <span>/</span>
+    <p class="people_num"><%= user_info.people_num_id %>人</p>
+  </div>
+  <div class="down">
+    <p class="user_info_text">ひとこと：<%= user_info.text %></p>
+  </div>
     <% end %>
-  <% unless user_signed_in?%>
-  <div class="new_user_info btn">
-  <%= link_to '情報を入力しよう！', new_user_info_path %>
-  </div>
-  <div class="to_root btn">
-  <%= link_to 'トップページへ戻る', root_path %>
-  </div>
   <% end %>
+<% unless user_signed_in?%>
+  <div class="enter">
+  <%= link_to '情報を入力する', new_user_info_path, class: 'mypage_btn' %>
+  </div><br>
+<% end %>
 </div>

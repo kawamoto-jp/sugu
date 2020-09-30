@@ -1,53 +1,75 @@
-<header>
-  <div class="border">
-    <h2 class="title">I - s e k i</h2>
-    <ul class="right_header">
-    <% if user_signed_in? %>
-      <li class="user_name">
-      <%= current_user.nickname %>さん、まいど！
-      </li>
-      <li class="logout">
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn' %>
-      </li>
-      <li class="new_user_info">
-      <%= link_to 'マイページ', pre_page_user_infos_path %>
-      </li>
-    <% else %>
-      <li class="user_name">
-      <li class="login">
-      <%= link_to 'ログイン', new_user_session_path %>
-      </li>
-      <li class="signin">
-      <%= link_to '新規登録', new_user_registration_path %>
-      </li>
-    <% end %>
-    </ul>
-  </div>
-</header>
+<div class="content">
+  <header>
+    <div class="border">
+      <%= link_to 'S U G U', root_path, class: 'title' %>
+      <ul class="right_header">
+      <% if user_signed_in? %>
+        <li class="user_name">
+        <%= current_user.nickname %>さん
+        </li>
+        <li class="logout">
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'header_btn' %>
+        </li>
+        <li class="new_user_info">
+        <%= link_to 'マイページ', pre_page_user_infos_path, class: 'header_btn' %>
+        </li>
+      <% else %>
+        <li class="signin">
+        <%= link_to '新規登録', new_user_registration_path, class: 'header_btn' %>
+        </li>
+        <li class="login">
+        <%= link_to 'ログイン', new_user_session_path, class: 'header_btn' %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </header>
 
-<div class="waiting">
-  <div class="proportion">
-    <h2>現在の男女比</h2>
-    男 <%= @promotion_male %> : 女 <%= @promotion_female %>
-  <h2>
-    待機中グループを検索！
-  </h2>
-  <%= search_form_for @p, url: user_infos_search_path do |f| %>
-    <div class="try">
-    <%= f.label :area_id_eq, 'エリア' %>
-    <%= f.collection_select :area_id_eq, @user_info_area, :area_id, :area_id,  include_blank: '指定なし' %>
+  <div class="top_main">
+    <div class="left">
     </div>
-    <br>
-    <div class="try">
-    <%= f.label :people_num_id_eq, '人数' %>
-    <%= f.collection_select :people_num_id_eq, @user_info_people_num, :people_num_id, :people_num_id,  include_blank: '指定なし' %>人
+    <div class="right">
+      <div class="proportion">
+        <h2>現在の男女比</h2>
+        <span class="sex otoko">男 </span><span class="sex"><%= @promotion_male %> ：<span class="sex onna"> 女 </span><span class="sex"><%= @promotion_female %></span>
+      </div>
+      <div class="wating">
+        <h2>待機中グループを検索</h2>
+        <%= search_form_for @p, url: user_infos_search_path do |f| %>
+        <div class="try">
+        <%= f.label :area_id_eq, 'エリア' %>
+        <%= f.collection_select :area_id_eq, Area.all, :id, :name, include_blank: '指定なし' %>
+        </div>
+        <br>
+        <div class="try">
+        <%= f.label :people_num_id_eq, '人数' %>
+        <%= f.collection_select :people_num_id_eq, PeopleNum.all, :id, :name, include_blank: '指定なし' %>人
+        </div>
+        <br>
+        <%= f.submit '探してみる', class: "search_btn" %>
+      </div>
+      <% end %>
     </div>
-    <br>
-    <%= f.submit '検索' %>
-  <% end %>
+  </div>
 </div>
 
 
+<% unless user_signed_in? %>
+<div class="about_app">
+  <div class="what_app">
+    <div class="explain">
+      <p style="border-bottom: 1px solid #806000">他のマッチングアプリと何が違うか？</p><br>
+      <p>このアプリが他のアプリと決定的に違う点は２つあります。一つは今すぐ会えるということ。もう一つは「複数人」対「複数人」で出会えるということ。この２つを実現できることで、あなたの出会いの可能性を広げます。</p>
+    </div>
+  </div>
+  <div class="why_app">
+    <div class="explain">
+      <p style="border-bottom: 1px solid #806000">なぜすぐ会えるのか？</p><br>
+      <p>アプリで表示されているのは、ログインしているユーザーのみです。ログインしているユーザーは「今」時間が空いています。これがすぐ会える理由です。</p>
+    </div>
+  </div>
+</div>
+<% end %>
 
 
 
@@ -55,7 +77,9 @@
 
 
 <div class="top_page">
-  <h2 class="login_now">待機中のグループ一覧！</h2>
+  <div class="flex">
+    <h2 class="login_now">待機中のグループ一覧</h2>
+  </div>
     <ul class="groups">
       <% @user_infos.each do |user_info| %>
         <li class="list">
@@ -65,19 +89,21 @@
               <%= image_tag user_info.image.variant(resize:'400x400'), class: "user_img" if user_info.image.attached? %>
               <% if user_signed_in? && user_info.user_id != current_user.id %>
                 <% if user_info.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
-                  <p class="follow_btn"><%=link_to "お気に入り済", user_info_favorites_path(user_info.id), class: "white", method: :delete %></p>
+                  <p class="followed_btn"><%=link_to "お気に入り済", user_info_favorites_path(user_info.id), class: "white", method: :delete %></p>
                 <% else %>
                   <p class="follow_btn"><%=link_to "お気に入り", user_info_favorites_path(user_info.id), class: "white", method: :post %></p>
-                <% end %>
+                <% end %>                
               <% end %>
             <!-- ネットのフォローボタン -->
               <div class="top">
-                <p class="nickname"><%= user_info.user.nickname %>|</p>
-                <p class="area"><%= user_info.area_id %>|</p>
+                <p class="nickname"><%= user_info.user.nickname %></p>
+                <span>/</span>
+                <p class="area"><%= user_info.area.name %></p>
+                <span>/</span>
                 <p class="people_num"><%= user_info.people_num_id %>人</p>
               </div>
               <div class="down">
-                <p class="user_info_text"><%= user_info.text %></p>
+                <p class="user_info_text">ひとこと：<%= user_info.text %></p>
               </div>
             </div>
           </div>
@@ -85,6 +111,3 @@
       <% end %>
     </ul>
 </div>
-
-
-<%# ↓↓↓自分で作ったフォローボタン↓↓↓  %>

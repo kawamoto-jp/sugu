@@ -4,12 +4,15 @@
     <title>Sugu</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="icon" href="https://www.bannerkoubou.com/image/sKdrII1u58cjjio1601291545_1601291720.jpg" type="image/vnd.microsoft.icon">
+    <meta name="viewport" content="width=1024" />
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class="wrap">
     <%= yield %>
+    </div>
   </body>
 </html>

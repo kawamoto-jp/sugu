@@ -11,15 +11,17 @@ class UserInfosController < ApplicationController
       return
     end
     if current_user.gender == "女"
-      @user_infos = UserInfo.joins(:user).where(users: { gender: "男"})
+      @user_infos = UserInfo.joins(:user).where(users: { gender: "男"}).order(id: "DESC")
       set_user_info_column
     elsif current_user.gender == "男"
-      @user_infos = UserInfo.joins(:user).where(users: { gender: "女"})
+      @user_infos = UserInfo.joins(:user).where(users: { gender: "女"}).order(id: "DESC")
       set_user_info_column
     end
   end
 
   def search
+    @promotion_male = UserInfo.joins(:user).where(users: { gender: "男"}).count
+    @promotion_female = UserInfo.joins(:user).where(users: { gender: "女"}).count
     unless user_signed_in?
       @results = @p.result.all.order(id: "DESC")
       set_user_info_column
@@ -44,9 +46,11 @@ class UserInfosController < ApplicationController
     @user_info = UserInfo.new(user_info_params)
     if UserInfo.where(user_id: current_user.id).present?
       redirect_to action: :false
-    else
+    elsif @user_info.valid?
       @user_info.save
       redirect_to root_path
+    else
+      render 'new'
     end
   end
 
@@ -55,11 +59,11 @@ class UserInfosController < ApplicationController
   end
 
   def update
-    user_info = UserInfo.find(params[:id])
-    if user_info.update(user_info_params)
+    if @user_info.valid?
+      @user_info.update(user_info_params)
       redirect_to root_path
-    else
-      render :edit
+    else 
+      render 'edit'
     end
   end
 
@@ -73,15 +77,15 @@ class UserInfosController < ApplicationController
   end
 
   # ==============追加================
-  def follows
-    user_info = UserInfo.find(params[:id])
-    @user_infos = user_info.followings
-  end
+  # def follows
+  #   user_info = UserInfo.find(params[:id])
+  #   @user_infos = user_info.followings
+  # end
 
-  def followers
-    user_info = UserInfo.find(params[:id])
-    @user_infos = user_info.followers
-  end
+  # def followers
+  #   user_info = UserInfo.find(params[:id])
+  #   @user_infos = user_info.followers
+  # end
 # ==============追加================
 
 

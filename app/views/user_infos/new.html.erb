@@ -1,24 +1,17 @@
 <div class="user_info_contents">
-  <header class="user_info_header">
-    <%= link_to image_tag('' , size: '185x50'), "/" %>
-
-  </header>
   <div class="user_info_main">
-    <h2 class="user_info_title">あなたの情報を入力</h2>
+    <h2 class="user_info_title">あなたたちの情報を入力</h2>
     <%= form_with model: @user_info, local: true do |f| %>
 
-    <%# <%= render 'shared/error_messages', model: f.object %> %>
+    <%= render 'shared/error_messages', model: f.object %>
 
     <%# 画像 %>
-    <div class="img-upload">
+    <div class="user_field">
       <div class="weight-bold-text">
         あなたたちの写真
         <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
         <%= f.file_field :image, id:"user_info_image" %>
       </div>
     </div>
@@ -26,22 +19,23 @@
 
 
     <%# あなたの説明 %>
-    <div class="one_phrase">
+    <div class="user_field">
       <div class="weight-bold-text">
         あなたたちの一言！
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :text, class:"user_info_text", id:"info", placeholder:"これから出会う方にひとこと伝えましょう！" ,rows:"3" ,maxlength:"30" %>
+      <%= f.text_area :text, class:"user_text", id:"info", placeholder:"これから出会う方にひとこと伝えましょう！" ,rows:"3" ,maxlength:"30" %>
     </div>
     <%# /あなたの説明 %>
 
     <%# あなたたちの詳細 %>
-    <div class="form">
+    <div class="user_field">
       <div class="weight-bold-text">
         あなたたちの人数
         <span class="indispensable">必須</span>
       </div>
       <%= f.collection_select(:people_num_id, PeopleNum.all, :id, :name, {}, {class:"select-box", id:"user_info_people_num"}) %>
+    <div class="user_field">
       <div class="weight-bold-text">
         あなたたちのいるエリア
         <span class="indispensable">必須</span>
@@ -52,12 +46,11 @@
 
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "登録する" ,class:"sell-btn" %>
-      <%=link_to 'キャンセル', root_path, class:"back-btn" %>
+      <%= f.submit "登録する" ,class:"btn" %><br>
+      <%=link_to 'トップページに戻る', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>
   <% end %>
-
   
 </div>

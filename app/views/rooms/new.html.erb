@@ -7,7 +7,9 @@
         <label class='chat-room-form__label' for='chat_room_チャットメンバー'>チャットメンバー</label>
       </div>
       <div class='chat-room-form__field--right'>
-      <%= @room_users %>
+      <%= User.all.each do |user| %>
+      <%= user.name %>
+      <% end %>
       </div>
     </div>
     <div class='chat-room-form__field'>

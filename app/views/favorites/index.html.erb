@@ -1,0 +1,36 @@
+<% @users.each do |user| %>
+  <% if current_user.id == user.id %>
+  <ul class="users">
+    <li class="user">
+      <p><span>いいねした人 </span></p><br>
+      <% if @favorite_user_infos.present? %>
+        <% @favorite_user_infos.each do |user_info| %>
+          <%= user_info.user.nickname %></p>
+        <% end %>
+      <% end %>
+    </li>
+  </ul>
+
+  <ul class="users">
+    <li class="user">
+      <p>いいねしてくれた人</p><br>
+      <% if @favorite_user_infos.present? %>
+        <% @favorite_users.each do |user| %>
+          <p style="color:red;"><%= user.nickname %></p>
+        <% end %>
+      <% end %>
+    </li>
+  </ul>
+
+   <p>マッチングした人</p>
+      <%# <% if current_user.id == @favorite_users.user_info.user_id && @favorite_users.user_info.user_id == @favorite_user_infos.user.id %> %>
+        <%# <p><% @matching.each do |user| %> %>
+          <%# <%= user.text %></p> %>
+        <%# <% end %> %>
+      <%# <% else %> %>
+        <%# 失敗 %>
+      <%# <% end %> %>
+  
+  
+  <% end %>
+<% end %>

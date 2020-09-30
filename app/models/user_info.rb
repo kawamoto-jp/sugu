@@ -1,5 +1,4 @@
 class UserInfo < ApplicationRecord
-  belongs_to :user
   # has_many :room_user_infos
   # has_many :rooms, through: :room_user_infos
   # has_many :messages
@@ -7,6 +6,8 @@ class UserInfo < ApplicationRecord
 
   belongs_to :user
   has_many :favorites
+  has_many :favorite_users, through: :favorites, source: :user
+
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
@@ -36,10 +37,10 @@ class UserInfo < ApplicationRecord
     validates :people_num
   end
 
-  with_options numericality: { other_than: 1 } do
-    validates :people_num_id
-    validates :area_id
-  end
+  # with_options numericality: { other_than: 1 } do
+    # validates :people_num_id
+    # validates :area_id
+  # end
   
   
 end
