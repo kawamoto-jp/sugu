@@ -88,8 +88,8 @@
             <!-- ネットのフォローボタン  -->
               <%= image_tag user_info.image.variant(resize:'400x400'), class: "user_img" if user_info.image.attached? %>
               <% if user_signed_in? && user_info.user_id != current_user.id %>
-                <% if user_info.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
-                  <p class="followed_btn"><%=link_to "お気に入り済", user_info_favorites_path(user_info.id), class: "white", method: :delete %></p>
+                <% if user_info.favorited_by?(current_user) %>
+                  <p class="followed_btn"><%=link_to "お気に入り済", user_info_favorite_path(user_info.id, 1), class: "white", method: :delete %></p>
                 <% else %>
                   <p class="follow_btn"><%=link_to "お気に入り", user_info_favorites_path(user_info.id), class: "white", method: :post %></p>
                 <% end %>                

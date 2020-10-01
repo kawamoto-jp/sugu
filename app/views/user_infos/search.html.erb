@@ -75,9 +75,9 @@
             <%= image_tag result.image.variant(resize:'400x400'), class: "user_img" if result.image.attached? %>
             <% if user_signed_in? && result.user_id != current_user.id %>
               <% if result.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
-                <p class="followed_btn"><%=link_to "お気に入り済", user_info_favorite_path(result.id), class: "white", method: :delete %></p>
+                <p class="followed_btn"><%=link_to "お気に入り済", user_info_favorite_path(result.id, 1), class: "white", method: :delete %></p>
               <% else %>
-                <p class="follow_btn"><%=link_to "お気に入り", user_info_favorites_path, class: "white", method: :post %></p>
+                <p class="follow_btn"><%=link_to "お気に入り", user_info_favorites_path(result.id), class: "white", method: :post %></p>
               <% end %>
             <% end %>
             <!-- ネットのフォローボタン  -->

@@ -39,18 +39,20 @@ class UserInfosController < ApplicationController
   
 
   def new
-    @user_info = UserInfo.new
+    if UserInfo.where(user_id: current_user.id).present?
+      redirect_to action: :false
+    else
+      @user_info = UserInfo.new
+    end
   end
 
   def create
     @user_info = UserInfo.new(user_info_params)
-    if UserInfo.where(user_id: current_user.id).present?
-      redirect_to action: :false
-    elsif @user_info.valid?
+    if @user_info.valid?
       @user_info.save
       redirect_to root_path
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -59,37 +61,26 @@ class UserInfosController < ApplicationController
   end
 
   def update
-    if @user_info.valid?
-      @user_info.update(user_info_params)
+    @user_info = UserInfo.find(params[:id])
+    if @user_info.update(user_info_params)
       redirect_to root_path
-    else 
-      render 'edit'
+    else
+      render :edit
     end
   end
 
   def destroy
-    
+    @user_info = UserInfo.find(params[:id])
+    unless user_signed_in?
+      @user_info.destroy
+    end
   end
-
 
   def pre_page
     @user_infos = UserInfo.all
   end
 
-  # ==============追加================
-  # def follows
-  #   user_info = UserInfo.find(params[:id])
-  #   @user_infos = user_info.followings
-  # end
-
-  # def followers
-  #   user_info = UserInfo.find(params[:id])
-  #   @user_infos = user_info.followers
-  # end
-# ==============追加================
-
-
-
+  
   private
 
   def search_user_info

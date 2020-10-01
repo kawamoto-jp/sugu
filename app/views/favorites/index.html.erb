@@ -1,8 +1,9 @@
 <% @users.each do |user| %>
   <% if current_user.id == user.id %>
+
   <ul class="users">
     <li class="user">
-      <p><span>いいねした人 </span></p><br>
+      <p style="border:1px solid black">フォロー</p>
       <% if @favorite_user_infos.present? %>
         <% @favorite_user_infos.each do |user_info| %>
           <%= user_info.user.nickname %></p>
@@ -13,24 +14,23 @@
 
   <ul class="users">
     <li class="user">
-      <p>いいねしてくれた人</p><br>
-      <% if @favorite_user_infos.present? %>
+      <p style="border:1px solid black">フォロワー</p>
+      <% if @favorite_users.present? %>
         <% @favorite_users.each do |user| %>
-          <p style="color:red;"><%= user.nickname %></p>
+          <p><%= user.nickname %></p>
         <% end %>
       <% end %>
     </li>
   </ul>
 
-   <p>マッチングした人</p>
-      <%# <% if current_user.id == @favorite_users.user_info.user_id && @favorite_users.user_info.user_id == @favorite_user_infos.user.id %> %>
-        <%# <p><% @matching.each do |user| %> %>
-          <%# <%= user.text %></p> %>
-        <%# <% end %> %>
-      <%# <% else %> %>
-        <%# 失敗 %>
-      <%# <% end %> %>
-  
-  
-  <% end %>
+  <ul class="users">
+    <li class="user">
+      <p style="border:1px solid black">相互フォロー</p>
+      <% @match.each do |match| %>
+        <p><%= match.nickname %></p>
+      <% end %>
+    </li>
+  </ul>
+
+<% end %>
 <% end %>
