@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   get 'user_infos/search'
 
-  resources :rooms
+  resources :rooms, only: [:index, :new, :create] do
+    resources :messages, only: [:index, :create]
+  end
+ 
   resources :user_infos do
     collection do
       get 'pre_page'

@@ -7,8 +7,8 @@ class User < ApplicationRecord
   has_one :user_info
   has_many :favorites
   has_many :favorite_user_infos, through: :favorites, source: :user_info
-  # has_many :room_users
-  # has_many :rooms, through: :rooms_users
+  has_many :room_users
+  has_many :rooms, through: :room_users
 
   validates :nickname, presence: true
   validates :gender, presence: true

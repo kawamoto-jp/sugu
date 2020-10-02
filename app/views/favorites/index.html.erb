@@ -1,36 +1,15 @@
-<% @users.each do |user| %>
+<div class='chat-room-form'>
+  <h1>マッチしたユーザー</h1>
+  <% @users.each do |user| %>
   <% if current_user.id == user.id %>
-
-  <ul class="users">
-    <li class="user">
-      <p style="border:1px solid black">フォロー</p>
-      <% if @favorite_user_infos.present? %>
-        <% @favorite_user_infos.each do |user_info| %>
-          <%= user_info.user.nickname %></p>
-        <% end %>
-      <% end %>
-    </li>
-  </ul>
-
-  <ul class="users">
-    <li class="user">
-      <p style="border:1px solid black">フォロワー</p>
-      <% if @favorite_users.present? %>
-        <% @favorite_users.each do |user| %>
-          <p><%= user.nickname %></p>
-        <% end %>
-      <% end %>
-    </li>
-  </ul>
-
-  <ul class="users">
-    <li class="user">
-      <p style="border:1px solid black">相互フォロー</p>
+    <ul class="users">
+      <li class="user">
       <% @match.each do |match| %>
         <p><%= match.nickname %></p>
+        <%= link_to 'チャットする', messages_path, class: 'mypage_btn' %>
       <% end %>
-    </li>
-  </ul>
-
-<% end %>
-<% end %>
+      </li>
+    </ul>
+  <% end %>
+  <% end %>
+</div>
