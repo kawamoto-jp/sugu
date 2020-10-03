@@ -17,7 +17,7 @@ class RoomsController < ApplicationController
     x = current_user.favorite_user_infos.pluck(:user_id)
     y = current_user.user_info.favorite_users.ids
     z = x & y
-    # @match = User.where(id: z)
+    @matched = User.where(id: z)
 
     u = current_user.rooms.includes(:users).map{|room| room.users.ids}.flatten.uniq
     a = z - u

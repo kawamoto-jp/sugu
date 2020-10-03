@@ -1,22 +1,48 @@
 <div class='new_room'>
   <%=form_with model: @room, local: true do |f|%>
   <div class="new_room_form">
-    
     <h1>新規チャットルーム</h1>
-    
-      <div class='room_form'>
-        <select name="room[user_ids][]" class="room_user_select">
-          <option value="">チャットするユーザーを選択してください</option>
-          <% @match.each do |match| %>
-            <option value=<%=match.id%>><%= match.nickname %></option>
-        </select>
-        <input name="room[user_ids][]" type="hidden" value=<%=current_user.id%>>
-      </div>
-      <div class='create_room'>
-        <%= f.submit class: 'create_room_btn'%>
-      </div>
-
-    
+    <div class='room_form'>
+      <select name="room[user_ids][]" class="room_user_select">
+        <option value="">チャットするユーザーを選択してください</option>
+        <% @match.each do |match| %>
+          <option value=<%=match.id%>><%= match.nickname %></option>
+        <% end %>
+      </select>
+      <input name="room[user_ids][]" type="hidden" value=<%=current_user.id%>>
+    </div>
+    <div class='create_room'>
+      <%= f.submit class: 'create_room_btn'%>
+    </div>
+    <div class="redirect_mypage">
+      <%= link_to 'マイページへ戻る', pre_page_user_infos_path %>
+    </div>
   </div>
   <% end %>
 </div>
+
+<div class="matched_users">
+  <h2>マッチしたユーザー</h2>
+  <ul>
+  <% @matched.each do |matched| %>
+    <li>
+      <div class="matched_top">
+        <div class="matched_img">
+          <%= image_tag matched.user_info.image.variant(resize:'400x400'), class: "user_img" if matched.user_info.image.attached? %>
+        </div>
+        <div class="top">
+          <p class="matched_nickname"><%= matched.nickname %></p>
+          <span>/</span>
+          <p class="matched_area"><%= matched.user_info.area.name %></p>
+          <span>/</span>
+          <p class="matched_people_num"><%= matched.user_info.people_num_id %>人</p>
+        </div>
+      </div>
+      <div class="down">
+        <p class="matched_user_info_text">ひとこと：<%= matched.user_info.text %></p>
+      </div>
+    </li>
+  <% end %>
+  </ul>
+</div>
+
