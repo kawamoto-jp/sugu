@@ -5,7 +5,7 @@
 /* ここから下はサイドバー */
 .side-bar {
   width: 300px;
-  background-color: #253141;
+  background-color: #3f3f3f;
   height: 100vh;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .rooms {
-  background-color: #2F3E51;
+  background-color: #7f7f7f;
   height: calc(100vh - 100px);
   padding: 0 20px;
   overflow: scroll;
@@ -33,6 +33,10 @@
   color: white;
 }
 
+.header-name {
+  color: #fafafa;
+}
+
 .header-name a {
   color: #fafafa;
   font-size: 16px;
@@ -44,9 +48,9 @@
 }
 
 .create-room a {
-  border: 1px solid lightblue;
+  border: 1px solid #fafafa;
   padding: 14px;
-  color: deepskyblue;
+  color: #fafafa;
   text-decoration: none;
 }
 
@@ -54,7 +58,7 @@
 
 /* ここから下はメインチャット */
 .chat {
-  background-color: #ffffff;
+  background-color: #dfdfdf;
   width: calc(100% - 300px);
 }
 

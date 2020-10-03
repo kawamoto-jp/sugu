@@ -9,6 +9,7 @@
   padding-top: 50px;
 }
 
+
 .title {
   font-size: 30px;
 }
@@ -116,7 +117,7 @@ select {
 }
 
 .right {
-  width: 40%;
+  width: 350px;
   padding: 30px 40px;
   text-align: center;
   background-color:rgba(255,255,255,0.7);
@@ -218,8 +219,8 @@ select {
   text-align    : center;      /* 文字位置   */
   cursor        : pointer;     /* カーソル   */
   padding       : 10px 20px;   /* 余白       */
-  background    : #b33e5c;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
+  background    : rgba(255,255,255,0.8);   
+  color         : #202020;  
   opacity       : 0.9;         /* 透明度     */
   transition    : .3s;         /* なめらか変化 */
   box-shadow    : 3px 3px 2px #666666;  /* 影の設定 */
@@ -239,7 +240,7 @@ select {
 }
 
 .content {
-  background-image: url(https://cdn.pixabay.com/photo/2017/08/27/04/06/bar-2685155_1280.jpg);
+  background-image: url(https://cdn.pixabay.com/photo/2016/03/09/09/42/buildings-1245953__480.jpg);
   background-size: cover;
 }
 
@@ -253,7 +254,7 @@ select {
 }
 
 .mypage {
-  padding: 118px 40px;
+  padding: 50px 40px;
 }
 
 .my {
@@ -274,8 +275,8 @@ select {
   text-align    : center;      
   cursor        : pointer;    
   padding       : 10px 20px;  
-  background    : #b33e5c;   
-  color         : #ffffff;  
+  background    : rgba(255,255,255,0.8);   
+  color         : #202020;  
   opacity       : 0.9;     
   transition    : .3s;      
   box-shadow    : 3px 3px 2px #666666; 
@@ -405,5 +406,22 @@ select {
 }
 
 /* user管理 */
+
+/* ↓false↓ */
+.false {
+  height: 100vh;
+  width: 100vw;
+  background-image: url(https://cdn.pixabay.com/photo/2016/03/09/09/42/buildings-1245953_1280.jpg);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.false_sign {
+  padding: 30px 40px;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 10px;
+}
+/* ↑false↑ */
 
 

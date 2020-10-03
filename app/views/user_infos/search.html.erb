@@ -5,7 +5,7 @@
       <ul class="right_header">
       <% if user_signed_in? %>
         <li class="user_name">
-        <%= current_user.nickname %>さん、まいど！
+        <%= current_user.nickname %>さん
         </li>
         <li class="logout">
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'header_btn' %>
@@ -43,7 +43,7 @@
         <br>
         <div class="try">
         <%= f.label :people_num_id_eq, '人数' %>
-        <%= f.collection_select :people_num_id_eq, PeopleNum.all, :id, :name, include_blank: '指定なし' %>人
+        <%= f.collection_select :people_num_id_eq, PeopleNum.all, :id, :name, include_blank: '指定なし' %>
         </div>
         <br>
         <%= f.submit '探してみる', class: "search_btn" %>

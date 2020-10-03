@@ -6,6 +6,8 @@ class RoomsController < ApplicationController
     y = current_user.user_info.favorite_users.ids
     z = x & y
     @match = User.where(id: z)
+
+    
   end
 
   def new
@@ -15,7 +17,13 @@ class RoomsController < ApplicationController
     x = current_user.favorite_user_infos.pluck(:user_id)
     y = current_user.user_info.favorite_users.ids
     z = x & y
-    @match = User.where(id: z)
+    # @match = User.where(id: z)
+
+    u = current_user.rooms.includes(:users).map{|room| room.users.ids}.flatten.uniq
+    a = z - u
+    @match = User.where(id: a)
+    
+    
   end
 
   def create
@@ -31,6 +39,7 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:name, user_ids: [])
+    params.require(:room).permit(user_ids:[])
+    
   end
 end

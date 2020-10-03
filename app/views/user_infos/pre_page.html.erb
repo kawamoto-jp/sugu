@@ -7,9 +7,6 @@
         <li class="user_name">
         <%= current_user.nickname %>さん
         </li>
-        <li class="logout">
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'header_btn' %>
-        </li>
         <div class="to_root">
         <%= link_to 'トップページへ戻る', root_path, class: 'mypage_btn' %>
         </div><br>
@@ -37,16 +34,15 @@
         <%= link_to '情報を編集する', edit_user_info_path(user_info.id), class: 'mypage_btn' %>
         </div><br>
         <div class="matchin_user">
-        <%= link_to 'マッチしたユーザー', new_room_path, class: 'mypage_btn' %>
+        <%= link_to 'チャットルーム作成', new_room_path, class: 'mypage_btn' %>
+        </div><br>
+        <div class="matchin_user">
+        <%= link_to 'チャットルームへ', rooms_path, class: 'mypage_btn' %>
         </div><br>
       </div>
     </div>
   </div>
-  
-  
-  <%= link_to 'あああああ', user_info_favorites_path(user_info.id), class: 'mypage_btn' %>
 
-  
 </div>
   
 <div class='pre_user_infos'>

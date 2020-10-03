@@ -1,18 +1,24 @@
 <div class="side-bar-header">
   <div class="header-name">
-    <%# <%= link_to current_user.name , edit_user_path(current_user) %> %>
+    <%= current_user.nickname %>さん
   </div>
   <div class="create-room">
-    <%= link_to "チャットを作成する", new_room_path %>
+    <%= link_to "マイページに戻る", pre_page_user_infos_path %>
   </div>
 </div>
 
 <div class="rooms">
+  <p style="color:white;">名前を押してチャットを始めます</p>
   <% current_user.rooms.each do |room| %>
     <div class="room">
       <div class="room-name">
-      <%= link_to room.name, room_messages_path(room) %>
+      <% t = room.room_users.where.not(user_id: current_user.id).pluck(:user_id) %>
+      <% @onegai = User.find(t) %>
+      <%= link_to @onegai.pluck(:nickname), room_messages_path(room) %>
       </div>
     </div>
   <% end %>
 </div>
+
+User.plunk(nickname: User.whewe(id: room.room_users.where.not(user_id: current_user.id))
+onegai.pluck(:nickname)

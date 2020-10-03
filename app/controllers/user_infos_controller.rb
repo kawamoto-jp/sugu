@@ -78,6 +78,7 @@ class UserInfosController < ApplicationController
 
   def pre_page
     @user_infos = UserInfo.all
+    
   end
 
   

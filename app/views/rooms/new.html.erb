@@ -1,35 +1,22 @@
-<div class='chat-room-form'>
-  <h1>新規チャットルーム</h1>
+<div class='new_room'>
   <%=form_with model: @room, local: true do |f|%>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'>
-        <%= f.label :チャットルーム名, class: 'chat-room-form__label'%>
-      </div>
-      <div class='chat-room-form__field--right'>
-        <%= f.text_field :name, class: 'chat__room_name chat-room-form__input', placeholder: 'チャットルーム名を入力してください'%>
-      </div>
-    </div>
-    <div class='chat-room-form__field'>
-    </div>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'>
-        <label class='chat-room-form__label' for='chat_room_チャットメンバー'>チャットメンバー</label>
-      </div>
-      <div class='chat-room-form__field--right'>
-        <select name="room[user_ids][]">
+  <div class="new_room_form">
+    
+    <h1>新規チャットルーム</h1>
+    
+      <div class='room_form'>
+        <select name="room[user_ids][]" class="room_user_select">
           <option value="">チャットするユーザーを選択してください</option>
           <% @match.each do |match| %>
             <option value=<%=match.id%>><%= match.nickname %></option>
-          <% end %>
         </select>
         <input name="room[user_ids][]" type="hidden" value=<%=current_user.id%>>
       </div>
-    </div>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'></div>
-      <div class='chat-room-form__field--right'>
-        <%= f.submit class: 'chat-room-form__action-btn'%>
+      <div class='create_room'>
+        <%= f.submit class: 'create_room_btn'%>
       </div>
-    </div>
+
+    
+  </div>
   <% end %>
 </div>
