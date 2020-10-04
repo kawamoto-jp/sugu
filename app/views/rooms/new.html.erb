@@ -22,10 +22,12 @@
 </div>
 
 <div class="matched_users">
-  <h2>マッチしたユーザー</h2>
+  <div class="flex">
+    <h2 class="gold">マッチしたユーザー</h2>
+  </div>
   <ul>
   <% @matched.each do |matched| %>
-    <li>
+    <li class="list">
       <div class="matched_top">
         <div class="matched_img">
           <%= image_tag matched.user_info.image.variant(resize:'400x400'), class: "user_img" if matched.user_info.image.attached? %>

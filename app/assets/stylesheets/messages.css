@@ -79,13 +79,6 @@
   margin-top: 40px;
 }
 
-.header-button a {
-  text-decoration: none;
-  border: 1px solid darkred;
-  color: darkred;
-  padding: 20px;
-}
-
 .messages {
   background-color: #FAFAFA;
   height: calc(100vh - 100px - 90px);
@@ -98,27 +91,19 @@
   margin-bottom: 40px;
 }
 
-.upper-message {
-  display: flex;
-}
-
-.message-user {
-  font-size: 16px;
+.m_user_nickname {
+  font-size: 12px;
+  font-weight: bold;
   color: #434a54;
 }
 
-.message-date {
-  font-size: 12px;
+.m_date {
+  font-size: 8px;
   color: #999;
-  padding-left: 10px;
 }
 
-.lower-message {
-  margin-top: 10px;
-}
-
-.message-content {
-  font-size: 14px;
+.m_content {
+  font-size: 16px;
   color: #434a54;
 }
 
@@ -152,17 +137,170 @@
   border: none;
 }
 
-.form-image {
-  font-size: 12px;
-  background-color: lightblue;
-  color: white;
-  padding: 12px;
-  width: 60px;
-  margin: 5px 10px;
-  text-align: center;
-}
-
 .hidden {
   display: none;
 }
+
+.m_nav {
+  display: none;
+}
 /* ここから上はメインチャット */
+
+@media (max-width: 500px) {
+
+  .ahh {
+    display: none;
+  }
+
+  .side-bar {
+    background-color: rosybrown;
+    width: 10%;
+  }
+
+  .m_nav {
+    display: inline;
+  }
+
+  .chat {
+    background-color: #dfdfdf;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .chat-header {
+    height: 50px;
+  }
+
+  .header-title {
+    margin-top: 5px;
+  }
+
+  .m_header-name {
+    margin-top: 30px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .m_create-room {
+    margin-top: 30px;
+  }
+
+  .z {
+    color: white;
+    font-size: 18px;
+    border: 1px solid white;
+    width: 300px;
+    padding: 8px 10px;
+  }
+
+  .m_rooms {
+    margin-top: 80px;
+  }
+
+
+  .under {
+    color:white;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+  }
+
+  
+
+  .w {
+    color: white;
+    font-size: 18px;
+  }
+
+  .m_room-name {
+    margin-top: 30px;
+  }
+
+  
+  
+  
+
+
+
+
+
+
+  #m-nav-drawer {
+    position: relative;
+    padding-top: 10px;
+    text-align: center;
+  }
+  
+  /*チェックボックス等は非表示に*/
+  .m-nav-unshown {
+    display:none;
+  }
+  
+  /*アイコンのスペース*/
+  #m-nav-open {
+    display: inline-block;
+    width: 30px;
+    height: 22px;
+    vertical-align: middle;
+  }
+  
+  /*ハンバーガーアイコンをCSSだけで表現*/
+  #m-nav-open span, #m-nav-open span:before, #m-nav-open span:after {
+    position: absolute;
+    height: 3px;/*線の太さ*/
+    width: 25px;/*長さ*/
+    border-radius: 3px;
+    background: #555;
+    display: block;
+    content: '';
+    cursor: pointer;
+  }
+  #m-nav-open span:before {
+    bottom: -8px;
+  }
+  #m-nav-open span:after {
+    bottom: -16px;
+  }
+  
+  /*閉じる用の薄黒カバー*/
+  #m-nav-close {
+    display: none;/*はじめは隠しておく*/
+    position: fixed;
+    z-index: 99;
+    top: 0;/*全体に広がるように*/
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    transition: .3s ease-in-out;
+  }
+  
+  /*中身*/
+  #m-nav-content {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;/*最前面に*/
+    width: 90%;/*右側に隙間を作る（閉じるカバーを表示）*/
+    max-width: 330px;/*最大幅（調整してください）*/
+    height: 100%;
+    background: rgba(64,64,64,0.8);/*背景色*/
+    transition: .3s ease-in-out;/*滑らかに表示*/
+    -webkit-transform: translateX(-105%);
+    transform: translateX(-105%);/*左に隠しておく*/
+  }
+  
+  /*チェックが入ったらもろもろ表示*/
+  #m-nav-input:checked ~ #m-nav-close {
+    display: block;/*カバーを表示*/
+    opacity: .5;
+  }
+  
+  #m-nav-input:checked ~ #m-nav-content {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);/*中身を表示（右へスライド）*/
+    box-shadow: 6px 0 25px rgba(0,0,0,.15);
+  }
+}

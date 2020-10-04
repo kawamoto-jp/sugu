@@ -1,5 +1,39 @@
 <div class="content">
   <header>
+
+    <div class="nav">
+      <div class="title">
+      <%= link_to 'S U G U', root_path, class: 'title' %>
+      </div>
+      <div id="nav-drawer">
+        <input id="nav-input" type="checkbox" class="nav-unshown">
+        <label id="nav-open" for="nav-input"><span></span></label>
+        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+        <div id="nav-content">
+          <ul class="right_header">
+          <% if user_signed_in? %>
+            <li class="user_name">
+            <%= current_user.nickname %>さん
+            </li>
+            <li class="new_user_info">
+            <%= link_to 'マイページ', pre_page_user_infos_path, class: 'header_btn' %>
+            </li>
+            <li class="logout">
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'header_btn' %>
+            </li>
+          <% else %>
+            <li class="signin">
+            <%= link_to '新規登録', new_user_registration_path, class: 'header_btn' %>
+            </li>
+            <li class="login">
+            <%= link_to 'ログイン', new_user_session_path, class: 'header_btn' %>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <div class="border">
       <%= link_to 'S U G U', root_path, class: 'title' %>
       <ul class="right_header">
@@ -58,13 +92,13 @@
 <div class="about_app">
   <div class="what_app">
     <div class="explain">
-      <p style="border-bottom: 1px solid #806000">他のマッチングアプリと何が違うか？</p><br>
+      <p class="bold" style="border-bottom: 1px solid #806000">他のマッチングアプリと何が違うか？</p><br>
       <p>このアプリが他のアプリと決定的に違う点は２つあります。一つは今すぐ会えるということ。もう一つは「複数人」対「複数人」で出会えるということ。この２つを実現できることで、あなたの出会いの可能性を広げます。</p>
     </div>
   </div>
   <div class="why_app">
     <div class="explain">
-      <p style="border-bottom: 1px solid #806000">なぜすぐ会えるのか？</p><br>
+      <p class="bold" style="border-bottom: 1px solid #806000">なぜすぐ会えるのか？</p><br>
       <p>アプリで表示されているのは、ログインしているユーザーのみです。ログインしているユーザーは「今」時間が空いています。これがすぐ会える理由です。</p>
     </div>
   </div>
@@ -78,7 +112,7 @@
 
 <div class="top_page">
   <div class="flex">
-    <h2 class="login_now">待機中のグループ一覧</h2>
+    <h2 class="gold">待機中のグループ一覧</h2>
   </div>
     <ul class="groups">
       <% @user_infos.each do |user_info| %>
@@ -86,7 +120,7 @@
           <div class='user_infos'>
             <div class="user_img">
             <!-- ネットのフォローボタン  -->
-              <%= image_tag user_info.image.variant(resize:'400x400'), class: "user_img" if user_info.image.attached? %>
+              <%= image_tag user_info.image.variant(resize:'380x380'), class: "user_img" if user_info.image.attached? %>
               <% if user_signed_in? && user_info.user_id != current_user.id %>
                 <% if user_info.favorited_by?(current_user) %>
                   <p class="followed_btn"><%=link_to "お気に入り済", user_info_favorite_path(user_info.id, 1), class: "white", method: :delete %></p>

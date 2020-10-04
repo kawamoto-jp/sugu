@@ -9,6 +9,8 @@ class MessagesController < ApplicationController
     z = x & y
     @match = User.where(id: z)
 
+    w = @room.room_users.where.not(user_id: current_user.id).pluck(:user_id)
+    @e = User.find(w)
     
   end
 
@@ -21,6 +23,9 @@ class MessagesController < ApplicationController
       @messages = @room.messages.includes(:user)
       render :index
     end
+  end
+
+  def preview
   end
 
   private

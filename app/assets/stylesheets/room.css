@@ -63,3 +63,13 @@
 .matched_nickname, .matched_area, .matched_people_num, .matched_user_info_text {
   color: black;
 }
+
+@media (max-width: 500px) {
+  .matched_nickname, .matched_area, .matched_people_num, .matched_user_info_text {
+    padding: 0;
+  }
+
+  .matched_users {
+    padding-top: 40px;
+  }
+}

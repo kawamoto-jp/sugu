@@ -50,7 +50,7 @@ class UserInfosController < ApplicationController
     @user_info = UserInfo.new(user_info_params)
     if @user_info.valid?
       @user_info.save
-      redirect_to root_path
+      redirect_to pre_page_user_infos_path
     else
       render :new
     end

@@ -1,5 +1,32 @@
 <div class="content">
   <header>
+
+    <div class="nav">
+      <div class="title">
+      <%= link_to 'S U G U', root_path, class: 'title' %>
+      </div>
+      <div id="nav-drawer">
+        <input id="nav-input" type="checkbox" class="nav-unshown">
+        <label id="nav-open" for="nav-input"><span></span></label>
+        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+        <div id="nav-content">
+          <ul class="right_header">
+          <% if user_signed_in? %>
+            <li class="user_name">
+            <%= current_user.nickname %>さん
+            </li>
+            <div class="to_root">
+            <%= link_to 'トップページ', root_path, class: 'header_btn' %>
+            </div>
+            <li class="logout">
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'header_btn' %>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <div class="border">
       <%= link_to 'S U G U', root_path, class: 'title' %>
       <ul class="right_header">
@@ -8,33 +35,27 @@
         <%= current_user.nickname %>さん
         </li>
         <div class="to_root">
-        <%= link_to 'トップページへ戻る', root_path, class: 'mypage_btn' %>
-        </div><br>
-      <% else %>
-        <li class="signin">
-        <%= link_to '新規登録', new_user_registration_path, class: 'header_btn' %>
-        </li>
-        <li class="login">
-        <%= link_to 'ログイン', new_user_session_path, class: 'header_btn' %>
-        </li>
+        <%= link_to 'トップページ', root_path, class: 'mypage_btn' %>
+        </div>
       <% end %>
       </ul>
     </div>
   </header>
+
   <div class="mypage">
     <div class="my">
       <div class="mypage_btns">
         <h2>マイページ</h2>
         <div class="enter">
-        <%= link_to '情報を入力する', new_user_info_path, class: 'mypage_btn' %>
+        <%= link_to '投稿する', new_user_info_path, class: 'mypage_btn' %>
         </div><br>
         <% @user_infos.each do |user_info| %>
         <% if current_user.id == user_info.user_id %>
         <div class="edit_user_info">
-        <%= link_to '情報を編集する', edit_user_info_path(user_info.id), class: 'mypage_btn' %>
+        <%= link_to '投稿を編集する', edit_user_info_path(user_info.id), class: 'mypage_btn' %>
         </div><br>
         <div class="matchin_user">
-        <%= link_to 'チャットルーム作成', new_room_path, class: 'mypage_btn' %>
+        <%= link_to 'ルーム作成', new_room_path, class: 'mypage_btn' %>
         </div><br>
         <div class="matchin_user">
         <%= link_to 'チャットルームへ', rooms_path, class: 'mypage_btn' %>
@@ -46,7 +67,9 @@
 </div>
   
 <div class='pre_user_infos'>
-  <h2>あなたの現在登録している情報<h2>
+  <div class="flex">
+    <h2 class="gold">あなたの今の投稿<h2>
+  </div>
   <div class="pre_user_img">
   <%= image_tag user_info.image.variant(resize:'400x400'), class: "user_img" if user_info.image.attached? %>
   </div>
