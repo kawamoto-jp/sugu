@@ -135,6 +135,10 @@ select {
   width: 70%;
 }
 
+.br {
+  display: none;
+}
+
 
 .search_btn {
   display       : inline-block;
@@ -584,6 +588,18 @@ select {
 
   .right {
     width: 80%;
+  }
+
+  .sex {
+    font-size: 20px;
+  }
+
+  .taiki {
+    font-size: 15px;
+  }
+
+  .br {
+    display: inline;
   }
   
   .explain {

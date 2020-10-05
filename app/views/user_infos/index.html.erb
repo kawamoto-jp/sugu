@@ -68,7 +68,7 @@
         <span class="sex otoko">男 </span><span class="sex"><%= @promotion_male %> ：<span class="sex onna"> 女 </span><span class="sex"><%= @promotion_female %></span>
       </div>
       <div class="wating">
-        <h2>待機中グループを検索</h2>
+        <h2 class="taiki">待機中グループを<br class="br">検索</h2>
         <%= search_form_for @p, url: user_infos_search_path do |f| %>
         <div class="try">
         <%= f.label :area_id_eq, 'エリア' %>
