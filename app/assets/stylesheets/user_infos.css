@@ -356,6 +356,7 @@ select {
   display: flex;
   justify-content: space-around;
   align-items: center;
+ 
 }
 
 .welcome {
@@ -626,6 +627,19 @@ select {
   }
 
   /* ↓user管理↓ *//* ↓user管理↓ *//* ↓user管理↓ */
+  .welcome {
+    padding: 15px 20px;
+    font-weight: bolder;
+    color: #ffffff;
+  }
+
+  .big_welcome {
+    font-size: 25px;
+  }
+  
+  .small_welcome {
+    font-size: 12px;
+  }
   .registration, .session {
     background-image: none;
     background-color: #a0a0a0;
@@ -633,7 +647,7 @@ select {
   }
 
   .registration_user, .session_user {
-    margin: 45px auto 0 auto;
+    margin: 20px auto 0 auto;
     width: 65%;
     text-align: center;
     padding: 20px 40px;
