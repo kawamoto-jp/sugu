@@ -405,7 +405,6 @@ select {
   height: 100vh;
   width: 100vw;
   background-image: url(https://mensdrip.com/wp-content/uploads/2015/06/18111fdb4db18a478e972af164604cd5.jpg);
-  background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   justify-content: space-around;
