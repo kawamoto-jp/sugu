@@ -163,7 +163,6 @@
 
   .fixed {
     display: inline;
-    width: 150px;
     position: fixed;
     top: 30%;
     right: 25%;
@@ -315,6 +314,6 @@
   #m-nav-input:checked ~ #m-nav-content {
     -webkit-transform: translateX(0%);
     transform: translateX(0%);/*中身を表示（右へスライド）*/
-    box-shadow: 6px 0 25px rgba(0,0,0,.15);
+    box-shadow: 6px 0 25px rgba(0, 0, 0, .15);
   }
 }
