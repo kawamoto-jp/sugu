@@ -144,6 +144,10 @@
 .m_nav {
   display: none;
 }
+
+.fixed {
+  display: none;
+}
 /* ここから上はメインチャット */
 
 @media (max-width: 500px) {
@@ -155,6 +159,16 @@
   .side-bar {
     background-color: rosybrown;
     width: 10%;
+  }
+
+  .fixed {
+    display: inline;
+    width: 150px;
+    position: fixed;
+    top: 30%;
+    right: 25%;
+    font-size: 15px;
+    font-weight: bold;
   }
 
   .m_nav {
