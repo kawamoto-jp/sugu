@@ -536,7 +536,7 @@ select {
   #nav-input:checked ~ #nav-content {
     -webkit-transform: translateX(0%);
     transform: translateX(0%);/*中身を表示（右へスライド）*/
-    box-shadow: 6px 0 25px rgba(0,0,0,.15);
+    box-shadow: 6px 0 25px rgba(0,0,0,0.15);
   }
 
   .header_btn {
@@ -628,7 +628,7 @@ select {
   /* ↓user管理↓ *//* ↓user管理↓ *//* ↓user管理↓ */
   .registration, .session {
     background-image: none;
-    background-color: rgba(160,160,160);
+    background-color: #a0a0a0;
     display: block;
   }
 
