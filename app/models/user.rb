@@ -5,7 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_one :user_info
-  has_many :favorites
+  # has_many :favorites
+
+  # 非同期用
+  has_many :favorites, dependent: :destroy
+  # 非同期用
+  
   has_many :favorite_user_infos, through: :favorites, source: :user_info
   has_many :room_users
   has_many :rooms, through: :room_users

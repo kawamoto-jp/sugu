@@ -68,18 +68,15 @@
   <% if @results.length != 0 %>
     <ul class="groups">
       <% @results.each do |result| %>
+        <% @result = result%>
         <li class="list">
           <div class='user_infos'>
             <div class="user_img">
             <!-- ネットのフォローボタン  -->
             <%= image_tag result.image.variant(resize:'400x400'), class: "user_img" if result.image.attached? %>
-            <% if user_signed_in? && result.user_id != current_user.id %>
-              <% if result.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
-                <p class="followed_btn"><%=link_to "お気に入り済", user_info_favorite_path(result.id, 1), class: "white", method: :delete %></p>
-              <% else %>
-                <p class="follow_btn"><%=link_to "お気に入り", user_info_favorites_path(result.id), class: "white", method: :post %></p>
-              <% end %>
-            <% end %>
+            <div id="favorites_buttons_<%= result.id %>">
+              <%= render partial: 'favorites/favorite_search', locals: { user_info: result} %>
+            </div>
             <!-- ネットのフォローボタン  -->
               <div class="top">
                 <p class="nickname"><%= result.user.nickname %></p>
@@ -101,4 +98,5 @@
   <% end %>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 

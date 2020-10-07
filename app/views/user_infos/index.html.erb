@@ -114,34 +114,33 @@
   <div class="flex">
     <h2 class="gold">待機中のグループ<br class="br">一覧</h2>
   </div>
-    <ul class="groups">
-      <% @user_infos.each do |user_info| %>
-        <li class="list">
-          <div class='user_infos'>
-            <div class="user_img">
+  <ul class="groups">
+    <% @user_infos.each do |user_info| %>
+      <li class="list">
+        <div class='user_infos'>
+          <div class="user_img">
             <!-- ネットのフォローボタン  -->
-              <%= image_tag user_info.image.variant(resize:'380x380'), class: "user_img" if user_info.image.attached? %>
-              <% if user_signed_in? && user_info.user_id != current_user.id %>
-                <% if user_info.favorited_by?(current_user) %>
-                  <p class="followed_btn"><%=link_to "お気に入り済", user_info_favorite_path(user_info.id, 1), class: "white", method: :delete %></p>
-                <% else %>
-                  <p class="follow_btn"><%=link_to "お気に入り", user_info_favorites_path(user_info.id), class: "white", method: :post %></p>
-                <% end %>                
-              <% end %>
+            <%= image_tag user_info.image.variant(resize:'380x380'), class: "user_img" if user_info.image.attached? %>
+            <div id="favorites_buttons_<%= user_info.id %>">
+              <%= render partial: 'favorites/favorite', locals: { user_info: user_info} %>
+            </div>
             <!-- ネットのフォローボタン -->
-              <div class="top">
-                <p class="nickname"><%= user_info.user.nickname %></p>
-                <span>/</span>
-                <p class="area"><%= user_info.area.name %></p>
-                <span>/</span>
-                <p class="people_num"><%= user_info.people_num_id %>人</p>
-              </div>
-              <div class="down">
-                <p class="user_info_text">ひとこと：<%= user_info.text %></p>
-              </div>
+            <div class="top">
+              <p class="nickname"><%= user_info.user.nickname %></p>
+              <span>/</span>
+              <p class="area"><%= user_info.area.name %></p>
+              <span>/</span>
+              <p class="people_num"><%= user_info.people_num_id %>人</p>
+            </div>
+            <div class="down">
+              <p class="user_info_text">ひとこと：<%= user_info.text %></p>
             </div>
           </div>
-        </li>
-      <% end %>
-    </ul>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+

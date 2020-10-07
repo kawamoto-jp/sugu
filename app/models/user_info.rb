@@ -1,7 +1,12 @@
 class UserInfo < ApplicationRecord
   has_one_attached :image
   belongs_to :user
-  has_many :favorites
+  # has_many :favorites
+
+  # 非同期用
+  has_many :favorites, dependent: :destroy
+  # 非同期用
+  
   has_many :favorite_users, through: :favorites, source: :user
 
   extend ActiveHash::Associations::ActiveRecordExtensions
