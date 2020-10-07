@@ -11,8 +11,8 @@
 
 
 .title {
-  font-size: 30px;
-}
+  font-size: 60px;
+  font-family: 'Verdana',sans-serif;}
 
 .groups {
   margin-top: 50px;
@@ -249,7 +249,12 @@ select {
 }
 
 .content {
-  background-image: url(https://cdn.pixabay.com/photo/2016/03/09/09/42/buildings-1245953__480.jpg);
+  background-image: url(https://www.arban-mag.com/wp-content/uploads/2018/05/180518_ParkHyattTokyo_01.jpg);
+  background-size: cover;
+}
+
+.pre_content {
+  background-image: url(https://cdn.pixabay.com/photo/2016/10/04/05/21/bar-1713610_1280.jpg);
   background-size: cover;
 }
 
@@ -636,6 +641,15 @@ select {
   .search_top {
     margin-top: 0px;
   }
+
+  .gold {
+    margin-top: 0;
+    width: 70%;
+    border-bottom: 2px solid #806000;
+    font-size: 20px;
+    color: #806000;
+  }
+  
 
   /* ↓user管理↓ *//* ↓user管理↓ *//* ↓user管理↓ */
   .welcome {

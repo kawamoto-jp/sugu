@@ -1,14 +1,15 @@
 <div class='new_room'>
   <%=form_with model: @room, local: true do |f|%>
   <div class="new_room_form">
-    <h1>新規チャットルーム</h1>
+    <h2>新規チャットルーム</h2>
     <div class='room_form'>
       <select name="room[user_ids][]" class="room_user_select">
-        <option value="">チャットするユーザーを選択してください</option>
+        <option value="">マッチしたユーザーを選択できます</option>
         <% @match.each do |match| %>
           <option value=<%=match.id%>><%= match.nickname %></option>
         <% end %>
       </select>
+      <p>※選択肢にユーザー名が現れない場合は<br class="br">マッチしていないか、<br class="br">すでにチャットルームが存在しています。</p>
       <input name="room[user_ids][]" type="hidden" value=<%=current_user.id%>>
     </div>
     <div class='create_room'>

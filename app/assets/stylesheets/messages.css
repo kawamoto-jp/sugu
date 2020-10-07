@@ -54,6 +54,14 @@
   text-decoration: none;
 }
 
+.under {
+  color:white;
+  border-bottom: 1px solid white;
+  padding: 5px 0;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 /* ここから上はサイドバー */
 
 /* ここから下はメインチャット */
@@ -210,15 +218,6 @@
   .m_rooms {
     margin-top: 80px;
   }
-
-
-  .under {
-    color:white;
-    border-bottom: 1px solid white;
-    padding-bottom: 10px;
-  }
-
-  
 
   .w {
     color: white;
