@@ -12,7 +12,8 @@
 
 .title {
   font-size: 60px;
-  font-family: 'Verdana',sans-serif;}
+  font-family: 'Verdana',sans-serif;
+}
 
 .groups {
   margin-top: 50px;
@@ -456,6 +457,7 @@ select {
 
 @media (max-width: 500px) {
   .title { 
+    font-size: 30px;
     padding: 20px 0 0 30px;
   }
   .nav {
