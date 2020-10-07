@@ -1,5 +1,39 @@
 <div class="content">
   <header>
+
+    <div class="nav">
+      <div class="title">
+      <%= link_to 'S U G U', root_path, class: 'title' %>
+      </div>
+      <div id="nav-drawer">
+        <input id="nav-input" type="checkbox" class="nav-unshown">
+        <label id="nav-open" for="nav-input"><span></span></label>
+        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+        <div id="nav-content">
+          <ul class="right_header">
+          <% if user_signed_in? %>
+            <li class="user_name">
+            <%= current_user.nickname %>さん
+            </li>
+            <li class="new_user_info">
+            <%= link_to 'マイページ', pre_page_user_infos_path, class: 'header_btn' %>
+            </li>
+            <li class="logout">
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'header_btn' %>
+            </li>
+          <% else %>
+            <li class="signin">
+            <%= link_to '新規登録', new_user_registration_path, class: 'header_btn' %>
+            </li>
+            <li class="login">
+            <%= link_to 'ログイン', new_user_session_path, class: 'header_btn' %>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <div class="border">
       <%= link_to 'S U G U', root_path, class: 'title' %>
       <ul class="right_header">
