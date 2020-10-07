@@ -228,7 +228,6 @@ select {
   font-size     : 12pt;        /* 文字サイズ */
   text-align    : center;      /* 文字位置   */
   cursor        : pointer;     /* カーソル   */
-  /* padding       : 10px 20px;   余白       */
   background    : rgba(255, 255, 255, 0.8);   
   color         : #202020;  
   opacity       : 0.9;         /* 透明度     */
@@ -351,17 +350,33 @@ select {
   font-weight: normal;
 }
 
-.registration {
+.registration, .session, .forgot {
   height: 100vh;
   width: 100vw;
-  background-image: url(https://mensdrip.com/wp-content/uploads/2015/06/2557bf76ae78dd4062826d8f6a26c993.jpg);
-  background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   justify-content: space-around;
   align-items: center;
- 
 }
+
+.registration {
+  background-image: url(https://mensdrip.com/wp-content/uploads/2015/06/2557bf76ae78dd4062826d8f6a26c993.jpg);
+}
+
+.session {
+  background-image: url(https://mensdrip.com/wp-content/uploads/2015/06/18111fdb4db18a478e972af164604cd5.jpg);
+}
+
+.forgot {
+  background-image: url(https://cdn.pixabay.com/photo/2017/04/29/20/59/pub-2271551_1280.jpg);
+}
+
+.registration_user, .session_user, .forgot_user {
+  padding: 30px 40px;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 10px;
+}
+
 
 .welcome {
   padding: 20px 30px;
@@ -375,12 +390,6 @@ select {
 
 .small_welcome {
   font-size: 15px;
-}
-
-.registration_user {
-  padding: 30px 40px;
-  background-color: rgba(255,255,255,0.8);
-  border-radius: 10px;
 }
 
 .field {
@@ -401,21 +410,8 @@ select {
   box-shadow    : 2px 2px 1px #666666;  /* 影の設定 */
 }
 
-.session {
-  height: 100vh;
-  width: 100vw;
-  background-image: url(https://mensdrip.com/wp-content/uploads/2015/06/18111fdb4db18a478e972af164604cd5.jpg);
-  background-size: cover;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-
-.session_user {
-  padding: 30px 40px;
-  background-color: rgba(255,255,255,0.8);
-  border-radius: 10px;
+.devise_user {
+  margin: 5px 0;
 }
 
 /* user管理 */
@@ -661,12 +657,19 @@ select {
     display: block;
   }
 
-  .registration_user, .session_user {
-    margin: 20px auto 0 auto;
-    width: 65%;
-    text-align: center;
-    padding: 20px 40px;
+  .forgot {
+    background-image: none;
+    background-color: #a0a0a0;
   }
+
+  .registration_user, .session_user, .forgot_user {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+  }
+
+  
+
   /* ↑user管理↑ *//* ↑user管理↑ *//* ↑user管理↑ */
 
   /* ↓フォローボタン ↓ *//* ↓フォローボタン ↓ *//* ↓フォローボタン ↓ */
@@ -698,4 +701,31 @@ select {
   }
   /* ↑マイページ↑ *//* ↑マイページ↑ *//* ↑マイページ↑ */
 
+}
+
+@media (max-width: 360px) {
+  .registration_user, .session_user, .forgot_user {
+    height: auto;
+    padding: 20px 20px;
+  }
+
+  .devise_h2 {
+    padding: 0;
+  }
+
+  .btn {
+    padding       : 3px 6px;   /* 余白       */
+    background    : #b33e5c;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    opacity       : 0.9;         /* 透明度     */
+    transition    : 0.3s;         /* なめらか変化 */
+    box-shadow    : 2px 2px 1px #666666;  /* 影の設定 */
+  }
+}
+
+@media (max-height: 570px) {
+  .field {
+    margin: 7px 0;
+    font-size: 10px;
+  }
 }

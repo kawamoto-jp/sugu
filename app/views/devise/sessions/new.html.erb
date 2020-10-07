@@ -4,19 +4,19 @@
     <p class="small_welcome">S U G Uはあなたの素敵な出会いをもたらす、<br>「複数人」対「複数人」のマッチングアプリです。</p>
   </div>
   <div class="session_user">
-    <h2>ログイン</h2>
+    <h2 class="devise_h2">ログイン</h2>
 
     <%= form_with model: @user, url: new_user_session_path, class: 'registration-main', local: true do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
       <div class="item"><%= f.label "Eメール" %></div>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"text" %>
     </div>
 
     <div class="field">
       <div class="item"><%= f.label "パスワード" %></div>
-      <%= f.password_field :password, autocomplete: "current-password" %>
+      <%= f.password_field :password, autocomplete: "current-password", class:"text" %>
     </div>
 
     <% if devise_mapping.rememberable? %>
