@@ -1,7 +1,6 @@
 class UserInfosController < ApplicationController
-
   before_action :search_user_info, only: [:index, :search]
-  
+
   def index
     @promotion_male = UserInfo.joins(:user).where(users: { gender: "男"}).count
     @promotion_female = UserInfo.joins(:user).where(users: { gender: "女"}).count
@@ -36,8 +35,6 @@ class UserInfosController < ApplicationController
     end
   end
 
-  
-
   def new
     if UserInfo.where(user_id: current_user.id).present?
       redirect_to action: :false
@@ -63,7 +60,7 @@ class UserInfosController < ApplicationController
   def update
     @user_info = UserInfo.find(params[:id])
     if @user_info.update(user_info_params)
-      redirect_to root_path
+      redirect_to pre_page_user_infos_path
     else
       render :edit
     end
@@ -78,10 +75,9 @@ class UserInfosController < ApplicationController
 
   def pre_page
     @user_infos = UserInfo.all
-    
   end
 
-  
+
   private
 
   def search_user_info
@@ -92,8 +88,6 @@ class UserInfosController < ApplicationController
     @user_info_area = UserInfo.select("area_id").distinct  # 重複なくnameカラムのデータを取り出す
     @user_info_people_num = UserInfo.select("people_num_id").distinct  # 重複なくnameカラムのデータを取り出す
   end
-
-  
 
   def user_info_params
     params.require(:user_info).permit(:gender, :image, :text, :people_num_id, :area_id).merge(user_id: current_user.id)
