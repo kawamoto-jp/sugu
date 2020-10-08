@@ -112,7 +112,7 @@
 
 <div class="top_page">
   <div class="flex">
-    <h2 class="gold">待機中のグループ<br class="br">一覧</h2>
+    <h2 class="gold">待機中の<br class="br">グループ一覧</h2>
   </div>
   <ul class="groups">
     <% @user_infos.each do |user_info| %>
@@ -120,8 +120,8 @@
         <div class='user_infos'>
           <div class="user_img">
             <!-- ネットのフォローボタン  -->
-            <div id="favorites_buttons_<%= user_info.id %>">
             <%= image_tag user_info.image.variant(resize:'380x380'), class: "user_img" if user_info.image.attached? %>
+            <div id="favorites_buttons_<%= user_info.id %>">
               <%= render partial: 'favorites/favorite', locals: { user_info: user_info} %>
             </div>
             <!-- ネットのフォローボタン -->
