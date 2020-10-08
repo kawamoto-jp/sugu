@@ -23,6 +23,10 @@ class MessagesController < ApplicationController
       @messages = @room.messages.includes(:user)
       render :index
     end
+
+    # @room = Room.find(params[:room_id])
+    # @message = @room.messages.create(content: params[:content], checked: false)
+    # render json:{ post: message }
   end
 
   def preview
