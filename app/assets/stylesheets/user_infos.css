@@ -100,9 +100,18 @@ select {
 .top_main {
   padding: 50px;
   margin: 0 auto;
-  width: 70%;
+  width: 90%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.left p {
+  margin-top: 20px;
+  font-size: 25px;
+  color: white;
+  padding: 40px;
+  width: 500px;
+  border: 1px solid white;
 }
 
 .right {
@@ -298,6 +307,7 @@ select {
 
 .pre_user_infos {
   text-align: center;
+  margin-bottom: 50px;
 }
 
 /* new, edit */
@@ -567,6 +577,10 @@ select {
 
   .logout, .new_user_info, .signin, .login {
     padding-top: 20px;
+  }
+
+  .left p {
+    display: none;
   }
   /* ↑↑ヘッダー *//* ↑↑ヘッダー *//* ↑↑ヘッダー *//* ↑↑ヘッダー */
 

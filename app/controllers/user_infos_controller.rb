@@ -47,7 +47,7 @@ class UserInfosController < ApplicationController
     @user_info = UserInfo.new(user_info_params)
     if @user_info.valid?
       @user_info.save
-      flash[:notice] = 'Completed!'
+      flash[:notice] = 'Successfully!'
       redirect_to pre_page_user_infos_path
     else
       render :new
@@ -61,7 +61,7 @@ class UserInfosController < ApplicationController
   def update
     @user_info = UserInfo.find(params[:id])
     if @user_info.update(user_info_params)
-      flash[:notice] = 'Completed!'
+      flash[:notice] = 'Successfully!'
        redirect_to pre_page_user_infos_path
     else
       render :edit
