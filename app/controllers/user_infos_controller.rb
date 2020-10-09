@@ -27,10 +27,10 @@ class UserInfosController < ApplicationController
       return
     end
     if current_user.gender == "女"
-      @results = @p.result.joins(:user).where(users: { gender: "男"})
+      @results = @p.result.joins(:user).where(users: { gender: "男"}).order(id: "DESC")
       set_user_info_column
     elsif current_user.gender == "男"
-      @results = @p.result.joins(:user).where(users: { gender: "女"})
+      @results = @p.result.joins(:user).where(users: { gender: "女"}).order(id: "DESC")
       set_user_info_column
     end
   end
@@ -47,6 +47,7 @@ class UserInfosController < ApplicationController
     @user_info = UserInfo.new(user_info_params)
     if @user_info.valid?
       @user_info.save
+      flash[:notice] = 'Completed!'
       redirect_to pre_page_user_infos_path
     else
       render :new
@@ -60,7 +61,8 @@ class UserInfosController < ApplicationController
   def update
     @user_info = UserInfo.find(params[:id])
     if @user_info.update(user_info_params)
-      redirect_to pre_page_user_infos_path
+      flash[:notice] = 'Completed!'
+       redirect_to pre_page_user_infos_path
     else
       render :edit
     end

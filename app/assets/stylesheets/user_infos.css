@@ -264,6 +264,13 @@ select {
   padding: 50px 40px;
 }
 
+.notifications {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 80px;
+  font-family: 'Savoye LET',sans-serif;
+}
+
 .my {
   width: 30%;
   text-align: center;
@@ -290,7 +297,6 @@ select {
 }
 
 .pre_user_infos {
-  padding: 100px 0;
   text-align: center;
 }
 

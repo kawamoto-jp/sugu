@@ -34,15 +34,15 @@
           <%= image_tag matched.user_info.image.variant(resize:'400x400'), class: "user_img" if matched.user_info.image.attached? %>
         </div>
         <div class="top">
-          <p class="matched_nickname"><%= matched.nickname %></p>
+          <p class="nickname"><%= matched.nickname %></p>
           <span>/</span>
-          <p class="matched_area"><%= matched.user_info.area.name %></p>
+          <p class="area"><%= matched.user_info.area.name %></p>
           <span>/</span>
-          <p class="matched_people_num"><%= matched.user_info.people_num_id %>人</p>
+          <p class="people_num"><%= matched.user_info.people_num_id %>人</p>
         </div>
       </div>
       <div class="down">
-        <p class="matched_user_info_text">ひとこと：<%= matched.user_info.text %></p>
+        <p class="user_info_text">ひとこと：<%= matched.user_info.text %></p>
       </div>
     </li>
   <% end %>
