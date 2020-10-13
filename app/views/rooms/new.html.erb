@@ -6,7 +6,7 @@
       <select name="room[user_ids][]" class="room_user_select">
         <option value="">マッチしたユーザーを選択できます</option>
         <% @match.each do |match| %>
-          <option value=<%=match.id%>><%= match.nickname %></option>
+          <option value=<%= match.id %>><%= match.nickname %></option>
         <% end %>
       </select>
       <p>※選択肢にユーザー名が現れない場合は<br class="br">マッチしていないか、<br class="br">すでにチャットルームが存在しています。</p>
@@ -22,12 +22,14 @@
   <% end %>
 </div>
 
+
+<% if @matched.exists?%>
+<% @matched.each do |matched| %>
 <div class="matched_users">
   <div class="flex">
     <h2 class="gold">マッチしたユーザー</h2>
   </div>
   <ul>
-  <% @matched.each do |matched| %>
     <li class="list">
       <div class="matched_top">
         <div class="matched_img">
@@ -45,7 +47,7 @@
         <p class="user_info_text">ひとこと：<%= matched.user_info.text %></p>
       </div>
     </li>
-  <% end %>
   </ul>
 </div>
-
+<% end %>
+<% end %>
