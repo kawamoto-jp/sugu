@@ -55,12 +55,18 @@ Ruby on Rails
 | Column             | Type    | Options     |
 | ------------------ | ------- | ----------- |
 | nickname           | string  | null: false |
+| gender             | string  | null: false |
 | email              | string  | null: false |
 | password           | string  | null: false |
 
 #### Association
 
-- has_one  :user_info
+- has_one   :user_info
+- has_many  :favorites, dependent: :destroy
+- has_many  :favarite_user_infos, through: :favorites, source: :user_info
+- has_many  :rooms, through: :room_users
+- has_many  :room_users
+- has_many  :messages
 
 
 
@@ -70,32 +76,63 @@ Ruby on Rails
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| picture          | string     | null: false                    |
-| people_num       | integer    | null: false                    |
-| sex_id           | integer    | null: false                    |
-| area_id          | integer    | null: false                    |
 | text             | text       | null: false                    |
+| people_num_id    | integer    | null: false                    |
+| area_id          | integer    | null: false                    |
 | user             | references | null: false, foreign_key: true |
 
 #### Association
 
-- belongs_to :user
-- has_many :rooms, through: room_user_infos
-- has_many :messages
-- has_many :relationship
+- belongs_to             :user
+- has_one_attached       :image 
+- has_many               :favorites, dependent: :destroy
+- has_many               :favorite_users, through: :favorites, source: :user
+- belongs_to_active_hash :area
+- belongs_to_active_hash :people_num
 
 
 ###  rooms テーブル
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| name           | string     | null: false                    |
-| relationship   | references | null: false, foreign_key: true |
 
 #### Association
 - has_many   :room_users
-- has_many   :user_infos, through: room_user_infos
+- has_many   :users, through: room_users
 - has_many   :messages
-- belongs_to :relationships
+
+
+
+
+### room_users テーブル
+
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| user         | references | null: false, foreign_key: true |
+| room         | references | null: false, foreign_key: true |
+
+#### Association
+
+- belongs_to :room
+- belongs_to :user
+
+
+
+
+
+###  favorites テーブル
+
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| user_id      | integer    |                                |
+| user_info_id | integer    |                                |
+
+
+#### Association
+
+- belongs_to :user
+- belongs_to :user_info
+
+
 
 
 
@@ -118,14 +155,3 @@ Ruby on Rails
 
 
 
-### room_users テーブル
-
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| user_info    | references | null: false, foreign_key: true |
-| room         | references | null: false, foreign_key: true |
-
-#### Association
-
-- belongs_to :room
-- belongs_to :user
