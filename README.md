@@ -4,7 +4,7 @@ SUGU
 ## 概要
 このアプリでは、「今」時間が空いている異性とすぐに合コンをすることができるアプリです。
 
-## 本番環境(　)
+## 本番環境
 デプロイ先 : https://sugu-sugu.herokuapp.com/
 
 テストアカウント① &nbsp;**email** : test1@test.test &nbsp;  **password** : aaaa11
@@ -13,17 +13,119 @@ SUGU
 
 
 ## 制作背景
-私はナンパをするのが苦手でした。なのでナンパをしなくて済むようにこのアプリを制作いたしました。  
+私はナンパをするのが苦手です。  
 私は営業マン時代、仕事終わりに上司によく繁華街に連れていってもらっていました。1軒目を出た後に、上司は必ず「ナンパしてこい。」と私を促します。上司は異性とお酒を飲みたいのです。しかし私はナンパが得意ではなく、失敗ばかりでした。このような経験から、ナンパをするのは非常に嫌なことでした。  
 そこで、このアプリを制作いたしました。これさえあれば、直接女性に声をかけることなくチャットをするだけで女性と食事をすることができます。
 
 ## DEMO(gifで動画や写真を貼って、ビューのイメージを掴んでもらいます)
-　⇒特に、デプロイがまだできていない場合はDEMOをつけることで見た目を企業側に伝えることができます。
+　
  
 ## 工夫したポイント
-
+マッチング機能の作成を工夫しました。  
+このアプリでのマッチングの定義は、「ユーザー達がお互いの投稿した情報に対してお気に入りをする」ということです。Twitterで例えると、ユーザーAがユーザーBのツイートにお気に入りを、ユーザーBがユーザーAのツイートにお気に入りをした状態です。これをコードで表すことに注力しました。具体的には、DBからデータを取り出す方法をいくつも調べ、何個も実践しました。  
+その結果が下記のコードです。
+```ruby
+x = current_user.favorite_user_infos.pluck(:user_id)
+y = current_user.user_info.favorite_users.ids
+z = x & y
+@match = User.where(id: z)
+```
+ネットにはマッチングさせる方法などのような記事はなく、自力でこのコードまでたどり着けたということにとても自信を持つことができました。
 ## 使用技術(開発環境)
+【言語】
+HTML5、CSS3、Ruby、JavaScript  
+
+【OS】
+macOS  
+
+【DB】
+Sequel Pro  
+
+【フレームワーク】
+Ruby on Rails
 
 ## 課題や今後実装したい機能
+課題は、マッチしたユーザーとチャットをするために、チャットルームを作成しなければいけないことです。  
+これがあることでユーザビリティが低くなってしまいます。現段階の技術力ではこれを解消することができませんでした。
+今後実装したい機能は、メッセージの非同期通信です。
 
 ## DB設計
+### users テーブル
+
+| Column             | Type    | Options     |
+| ------------------ | ------- | ----------- |
+| nickname           | string  | null: false |
+| email              | string  | null: false |
+| password           | string  | null: false |
+
+#### Association
+
+- has_one  :user_info
+
+
+
+
+
+### user_infos テーブル
+
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| picture          | string     | null: false                    |
+| people_num       | integer    | null: false                    |
+| sex_id           | integer    | null: false                    |
+| area_id          | integer    | null: false                    |
+| text             | text       | null: false                    |
+| user             | references | null: false, foreign_key: true |
+
+#### Association
+
+- belongs_to :user
+- has_many :rooms, through: room_user_infos
+- has_many :messages
+- has_many :relationship
+
+
+###  rooms テーブル
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| name           | string     | null: false                    |
+| relationship   | references | null: false, foreign_key: true |
+
+#### Association
+- has_many   :room_users
+- has_many   :user_infos, through: room_user_infos
+- has_many   :messages
+- belongs_to :relationships
+
+
+
+
+
+###  messages テーブル
+
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| content    | string     |                                |
+| user       | references | null: false, foreign_key: true |
+| room       | references | null: false, foreign_key: true |
+
+#### Association
+
+- belongs_to :room
+- belongs_to :user
+
+
+
+
+
+### room_users テーブル
+
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| user_info    | references | null: false, foreign_key: true |
+| room         | references | null: false, foreign_key: true |
+
+#### Association
+
+- belongs_to :room
+- belongs_to :user
