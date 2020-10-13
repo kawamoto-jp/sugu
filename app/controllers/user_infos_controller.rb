@@ -69,9 +69,6 @@ class UserInfosController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:id]) #ユーザ毎の情報を得る
-    user.destroy #ユーザ情報を削除（退会）
-    redirect_to root_path
   end
 
   def pre_page
