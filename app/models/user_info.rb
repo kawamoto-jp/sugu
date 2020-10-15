@@ -1,6 +1,6 @@
 class UserInfo < ApplicationRecord
   has_one_attached :image
-  belongs_to :user
+  belongs_to :user, optional: true #加えた
 
   # 非同期用
   has_many :favorites, dependent: :destroy
