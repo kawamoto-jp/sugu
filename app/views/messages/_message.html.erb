@@ -1,20 +1,48 @@
 <div class="message">
-  <div class="upper-message">
-  <% link_to %>
-    <div class="m_user_img">
-      <%= image_tag message.user.user_info.image.variant(resize:'150x150'), class: "user_img" if message.user.user_info.image.attached? %>
+  
+  <% if message.user == current_user%>
+  <div class="m_right">
+    <div class="mm_right">
+      <div class="m_user_img">
+        <%= image_tag message.user.user_info.image.variant(resize:'100x100'), class: "user_img" if message.user.user_info.image.attached? %>
+      </div>
+
+      <div class="m_user_nickname">
+        <%= message.user.nickname %>
+      </div>
+
+      <div class="m_date">
+        <%= message.created_at.to_s(:datetime_jp) %>
+      </div>
+
+      <div class="m_content">
+        <%= message.content %>
+      </div>
     </div>
+  </div>
+  <% else %>
+
+
+  <div class="ano_user">
+    
+    <div class="m_user_img">
+    <%= link_to new_room_path do%>
+      <%= image_tag message.user.user_info.image.variant(resize:'100x100'), class: "user_img" if message.user.user_info.image.attached? %>
+    <% end %>
+    </div>
+    
 
     <div class="m_user_nickname">
-      <%= message.user.nickname%>
+      <%= message.user.nickname %>
     </div>
 
     <div class="m_date">
-      <%= l message.created_at%>
+      <%= message.created_at.to_s(:datetime_jp) %>
+    </div>
+
+    <div class="m_content">
+      <%= message.content %>
     </div>
   </div>
-
-  <div class="m_content">
-    <%= message.content%>
-  </div>
+  <% end %>
 </div>

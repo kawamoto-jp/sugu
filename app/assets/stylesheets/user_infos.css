@@ -21,7 +21,7 @@
 }
 
 .list {
-  margin-bottom: 40px;
+  padding-bottom: 40px;
 }
 
 .user_infos{
@@ -132,8 +132,6 @@ select {
 
 .left {
   width: 70%;
- 
-
 }
 
 .br {
@@ -311,6 +309,30 @@ select {
   text-align: center;
   margin-bottom: 50px;
 }
+
+.explain_flex {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.explain_flex p{
+  margin-top: 30px;
+  width: 35%;
+  font-size: 15px;
+  border: 1px solid #806000;
+  color: #806000;
+  padding: 20px 30px;
+  border-radius: 4px;
+  height: 25%;
+}
+
+.time {
+  text-align: center;
+  font-size: 17px;
+}
+
+
 
 /* new, edit */
 .user_info_contents {
@@ -588,6 +610,7 @@ select {
 
   .top_main {
     width: 100%;
+    padding: 30px;
     justify-content: center;
   }
 
@@ -649,7 +672,7 @@ select {
   }
 
   .list {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
   }
 
   .search_top {
@@ -662,6 +685,27 @@ select {
     border-bottom: 2px solid #806000;
     font-size: 20px;
     color: #806000;
+  }
+
+  .explain_flex {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .explain_flex p{
+    margin-top: 30px;
+    width: 80%;
+    font-size: 15px;
+    border: 1px solid #806000;
+    color: #806000;
+    padding: 20px 30px;
+    border-radius: 4px;
+    height: 25%;
+  }
+
+  .time {
+    font-size: 14px;
   }
   
 

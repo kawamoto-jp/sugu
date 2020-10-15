@@ -93,6 +93,9 @@
   <div class="flex">
     <h2 class="gold">検索結果</h2>
   </div>
+  <div class="explain_flex">
+    <p style="font-size:17px;">画面上部の投稿は、<br class="br">最新の合コン情報です。<br>見逃さずにお気に入りをしましょう。</p>
+  </div>
   <div class="root_path">
   <%= link_to 'トップページへ戻る', root_path %>
   </div>
@@ -112,16 +115,19 @@
               <%= render partial: 'favorites/favorite_search', locals: { user_info: result} %>
             </div>
             <!-- ネットのフォローボタン  -->
-              <div class="top">
-                <p class="nickname"><%= result.user.nickname %></p>
-                <span>/</span>
-                <p class="area"><%= result.area.name %></p>
-                <span>/</span>
-                <p class="people_num"><%= result.people_num_id %>人</p>
-              </div>
-              <div class="down">
-                <p class="user_info_text">ひとこと：<%= result.text %></p>
-              </div>
+            <div class="time">
+            <%= result.updated_at.to_s(:datetime_jp) %>
+            </div>
+            <div class="top">
+              <p class="nickname"><%= result.user.nickname %></p>
+              <span>/</span>
+              <p class="area"><%= result.area.name %></p>
+              <span>/</span>
+              <p class="people_num"><%= result.people_num_id %>人</p>
+            </div>
+            <div class="down">
+              <p class="user_info_text">ひとこと：<%= result.text %></p>
+            </div>
             </div>
           </div>
         </li>

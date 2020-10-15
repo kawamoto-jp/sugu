@@ -77,6 +77,9 @@
   <div class="pre_user_img">
   <%= image_tag user_info.image.variant(resize:'400x400'), class: "user_img" if user_info.image.attached? %>
   </div>
+  <div class="time">
+  <%= user_info.updated_at.to_s(:datetime_jp) %>
+  </div>
   <div class="ul_top">
     <p class="nickname"><%= user_info.user.nickname %></p>
     <span>/</span>

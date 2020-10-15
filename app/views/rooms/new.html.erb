@@ -18,22 +18,29 @@
     <div class="redirect_mypage">
       <%= link_to 'マイページへ戻る', pre_page_user_infos_path %>
     </div>
+    <div class="matchin_user">
+    <%= link_to 'チャットルームへ', rooms_path %>
+    </div>
   </div>
   <% end %>
 </div>
 
 
 <% if @matched.exists?%>
-<% @matched.each do |matched| %>
+
 <div class="matched_users">
   <div class="flex">
     <h2 class="gold">マッチしたユーザー</h2>
   </div>
   <ul>
+  <% @matched.each do |matched| %>
     <li class="list">
       <div class="matched_top">
         <div class="matched_img">
           <%= image_tag matched.user_info.image.variant(resize:'400x400'), class: "user_img" if matched.user_info.image.attached? %>
+        </div>
+        <div class="time">
+        <%= matched.updated_at.to_s(:datetime_jp) %>
         </div>
         <div class="top">
           <p class="nickname"><%= matched.nickname %></p>
@@ -47,7 +54,8 @@
         <p class="user_info_text">ひとこと：<%= matched.user_info.text %></p>
       </div>
     </li>
+  <% end %>
   </ul>
 </div>
 <% end %>
-<% end %>
+

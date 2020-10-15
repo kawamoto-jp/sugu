@@ -111,8 +111,11 @@
 }
 
 .m_content {
+  width: 180px;
   font-size: 16px;
   color: #434a54;
+  text-align: left;
+  margin-right: -30px;
 }
 
 .form {
@@ -155,6 +158,15 @@
 
 .fixed {
   display: none;
+}
+
+.m_right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mm_right {
+  text-align: right;
 }
 /* ここから上はメインチャット */
 
@@ -228,9 +240,16 @@
     margin-top: 30px;
   }
 
+  .m_user_img img {
+    height: 70px;
+    width: 70px;
+  }
   
-  
-  
+  .m_content {
+    width: 150px;
+    font-size: 16px;
+    color: #434a54;
+  }
 
 
 

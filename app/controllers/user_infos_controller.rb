@@ -5,15 +5,15 @@ class UserInfosController < ApplicationController
     @promotion_male = UserInfo.joins(:user).where(users: { gender: "男"}).count
     @promotion_female = UserInfo.joins(:user).where(users: { gender: "女"}).count
     unless user_signed_in?
-      @user_infos = UserInfo.all.order(id: "DESC")
+      @user_infos = UserInfo.all.order(updated_at: :desc)
       set_user_info_column
       return
     end
     if current_user.gender == "女"
-      @user_infos = UserInfo.joins(:user).where(users: { gender: "男"}).order(id: "DESC")
+      @user_infos = UserInfo.joins(:user).where(users: { gender: "男"}).order(updated_at: :desc)
       set_user_info_column
     elsif current_user.gender == "男"
-      @user_infos = UserInfo.joins(:user).where(users: { gender: "女"}).order(id: "DESC")
+      @user_infos = UserInfo.joins(:user).where(users: { gender: "女"}).order(updated_at: :desc)
       set_user_info_column
     end
   end
@@ -27,10 +27,10 @@ class UserInfosController < ApplicationController
       return
     end
     if current_user.gender == "女"
-      @results = @p.result.joins(:user).where(users: { gender: "男"}).order(id: "DESC")
+      @results = @p.result.joins(:user).where(users: { gender: "男"}).order(updated_at: :desc)
       set_user_info_column
     elsif current_user.gender == "男"
-      @results = @p.result.joins(:user).where(users: { gender: "女"}).order(id: "DESC")
+      @results = @p.result.joins(:user).where(users: { gender: "女"}).order(updated_at: :desc)
       set_user_info_column
     end
   end

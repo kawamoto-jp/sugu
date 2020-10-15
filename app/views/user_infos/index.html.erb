@@ -61,7 +61,7 @@
 
   <div class="top_main">
     <div class="left">
-      <p>S U G Uは、<br>あなたに最高の出会いをお届けする<br>「複数人」対「複数人」の<br>マッチングアプリです。</p>
+      <p>S U G Uは、<br>「今すぐ会いたい」を形にする<br>「複数人」対「複数人」の<br>マッチングアプリです。</p>
     </div>
     <div class="right">
       <div class="proportion">
@@ -102,7 +102,7 @@
   <div class="why_app">
     <div class="explain">
       <p class="bold" style="border-bottom: 1px solid #806000">なぜすぐ会えるのか？</p><br>
-      <p>アプリで表示されているのは、ログインしているユーザーのみです。ログインしているユーザーは「今」時間が空いています。これがすぐ会える理由です。</p>
+      <p>表示されているユーザーは「今」時間が空いて、繁華街で待機しています。投稿時間が表示されており、時間が浅いユーザーほど会える確率が上がります。これがすぐ会える理由です。</p>
     </div>
   </div>
 </div>
@@ -113,6 +113,9 @@
 <div class="top_page">
   <div class="flex">
     <h2 class="gold">待機中の<br class="br">グループ一覧</h2>
+  </div>
+  <div class="explain_flex">
+    <p style="font-size:17px;">画面上部の投稿は最新の<br class="br">待機中ユーザーの情報です。<br>見逃さずにお気に入りを<br class="br">しましょう。</p>
   </div>
   <ul class="groups">
     <% @user_infos.each do |user_info| %>
@@ -125,6 +128,9 @@
               <%= render partial: 'favorites/favorite', locals: { user_info: user_info} %>
             </div>
             <!-- ネットのフォローボタン -->
+            <div class="time">
+            <%= user_info.updated_at.to_s(:datetime_jp) %>
+            </div>
             <div class="top">
               <p class="nickname"><%= user_info.user.nickname %></p>
               <span>/</span>
