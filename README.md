@@ -21,17 +21,20 @@ SUGU
 ## トップページ
 <img src="oriapp_top.gif">  
 
-## お気に入り機能
+## お気に入り機能  
+非同期でお気に入りボタンを押せるようにしています。
 <img src="oriapp_favo.gif">  
 
-## 詳細検索機能
+## 詳細検索機能  
 <img src="oriapp_kensaku.gif">  
 
 ## マッチング機能
 <img src="oriapp_match.gif">  
 
 ## チャット機能
-<img src="oriapp_chat.gif">
+<img src="oriapp_chat.gif">  
+
+## レスポンシブデザイン
 
 
 
