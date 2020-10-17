@@ -18,10 +18,19 @@ SUGU
 そこで、このアプリを制作いたしました。これさえあれば、直接女性に声をかけることなくチャットをするだけで女性と食事をすることができます。
 
 ## DEMO
-<img src="oriapp_top.gif">
-<img src="">
+### トップページ
+<img src="oriapp_top.gif">  
+
+### お気に入り機能
+<img src="oriapp_favo.gif">
+
+### 詳細検索機能
 <img src="oriapp_kensaku.gif">
+
+### マッチング機能
 <img src="oriapp_match.gif">
+
+### チャット機能
 <img src="oriapp_chat.gif">
 
 
