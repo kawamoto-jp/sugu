@@ -22,7 +22,7 @@ SUGU
 <img src="oriapp_top.gif" width="533" height="266">  
 
 ## お気に入り機能  
-非同期通信でお気に入りボタンを押せるようにしています。
+#### 非同期通信でお気に入りボタンを押せるようにしています。  
 <img src="oriapp_favo.gif" width="533" height="266">  
   
 ## 詳細検索機能  
