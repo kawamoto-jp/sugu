@@ -28,10 +28,11 @@ SUGU
 ## 詳細検索機能  
 <img src="oriapp_kensaku.gif" width="533" height="266">  
   
-## マッチング機能
+## マッチング機能（ルーム作成機能）  
+#### 一度チャットルームを作成しているユーザーはセレクトボックスに表示されないようにしています。  
 <img src="oriapp_match.gif" width="533" height="266">  
   
-## チャット機能
+## チャット機能  
 <img src="oriapp_chat.gif" width="533" height="266">  
   
 ## レスポンシブデザイン
