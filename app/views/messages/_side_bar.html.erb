@@ -13,9 +13,9 @@
     <div class="room">
       <div class="room-name">
       <% t = room.room_users.where.not(user_id: current_user.id).pluck(:user_id) %>
-      <% @chat_user = User.find(t) %>
-      <%# <%= @chat_user.class %>
-      <%= link_to @chat_user.pluck(:nickname), room_messages_path(room) %>
+      <% @chat_user = User.find_by(id: t) %>
+      <%= link_to @chat_user.nickname, room_messages_path(room), class: 'w' %>
+      <% @hhh = @chat_user %>
       </div>
     </div>
   <% end %>

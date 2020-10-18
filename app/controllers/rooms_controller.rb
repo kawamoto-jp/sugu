@@ -2,7 +2,7 @@ class RoomsController < ApplicationController
   def index
     @favorite_user_infos = current_user.favorite_user_infos #情報を取ってる
     @favorite_users = current_user.user_info.favorite_users #ユーザーを取ってる
-    x = current_user.favorite_user_infos.pluck(:user_id)
+    x = current_user.favorite_user_infos.all.pluck(:user_id)
     y = current_user.user_info.favorite_users.ids
     z = x & y
     @match = User.where(id: z)
@@ -24,10 +24,11 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(room_params)
-    if @room.save
+    if @room.user_ids.length == 2
+      @room.save
       redirect_to rooms_path
     else
-      render :new
+      redirect_to false_user_infos_path
     end
   end
 
