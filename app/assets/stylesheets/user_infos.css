@@ -67,6 +67,45 @@
   text-align: center;
 }
 
+
+
+.how_to_use {
+  margin: 100px 0;
+}
+
+.how_to_use h2 {
+  text-align: center;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.exp {
+  margin: 30px auto 0 auto;
+  width: 35%;
+  font-size: 15px;
+  border: 1px solid #806000;
+  color: #806000;
+  padding: 20px 30px;
+  border-radius: 4px;
+  height: 25%;
+}
+
+.under_line {
+  border-bottom: 1px solid #806000;
+  padding-bottom: 3px;
+}
+
+.asap {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  margin: 30px 0;
+  color: #806000;
+}
+
+
+
 .gold {
   margin-top: 50px;
   width: 70%;
@@ -327,11 +366,28 @@ select {
   height: 25%;
 }
 
+.caution {
+  text-align: center;
+  font-size: 15px;
+  color: #806000;
+}
+
 .time {
   text-align: center;
   font-size: 17px;
 }
 
+.brbr {
+  display: none;
+}
+
+.br320 {
+  display: none;
+}
+
+.br375 {
+  display: none;
+}
 
 
 /* new, edit */
@@ -635,6 +691,30 @@ select {
     font-size: 15px;
   }
 
+
+  .how_to_use {
+    margin: 50px 0 80px 0;
+  }
+  .exp {
+    margin: 30px auto 0 auto;
+    width: 70%;
+    font-size: 15px;
+    border: 1px solid #806000;
+    color: #806000;
+    padding: 20px 30px;
+    border-radius: 4px;
+    height: 25%;
+  }
+
+  .asap {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    width: 70%;
+    margin: 30px auto;
+    color: #806000;
+  }
+
   .br {
     display: inline;
   }
@@ -706,6 +786,18 @@ select {
 
   .time {
     font-size: 14px;
+  }
+
+  .brbr {
+    display: none;
+  }
+
+  .br320 {
+    display: none;
+  }
+
+  .br375 {
+    display: none;
   }
   
 
@@ -782,6 +874,12 @@ select {
 
 }
 
+@media (max-width: 375px) {
+  .br375 {
+    display: block;
+  }
+}
+
 @media (max-width: 360px) {
   .registration_user, .session_user, .forgot_user {
     height: auto;
@@ -799,6 +897,27 @@ select {
     opacity       : 0.9;         /* 透明度     */
     transition    : 0.3s;         /* なめらか変化 */
     box-shadow    : 2px 2px 1px #666666;  /* 影の設定 */
+  }
+
+  .none {
+    display: none;
+  }
+
+  .brbr {
+    display: inline;
+    font-size: 18px;
+  }
+
+  .search_btn {
+    padding       : 10px 21px;   /* 余白       */
+  }
+
+  .br320 {
+    display: block;
+  }
+
+  .br375 {
+    display: none;
   }
 }
 

@@ -66,7 +66,9 @@
     <div class="right">
       <div class="proportion">
         <h2>現在の男女比</h2>
-        <span class="sex otoko">男 </span><span class="sex"><%= @promotion_male %> ：<span class="sex onna"> 女 </span><span class="sex"><%= @promotion_female %></span>
+        <span class="sex otoko">男 </span><span class="sex"><%= @promotion_male %></span><span class="brbr">人</span><br class="brbr">
+        <span class="none">：</span>
+        <span class="sex onna"> 女 </span><span class="sex"><%= @promotion_female %></span><span class="brbr">人</span>
       </div>
       <div class="wating">
         <h2 class="taiki">待機中グループを<br class="br">検索</h2>
@@ -81,7 +83,9 @@
         <%= f.collection_select :people_num_id_eq, PeopleNum.all, :id, :name, include_blank: '指定なし' %>
         </div>
         <br>
+        <div class="s">
         <%= f.submit '探してみる', class: "search_btn" %>
+        </div>
       </div>
       <% end %>
     </div>
@@ -95,16 +99,26 @@
 <div class="about_app">
   <div class="what_app">
     <div class="explain">
-      <p class="bold" style="border-bottom: 1px solid #806000">他のマッチングアプリと何が違うか？</p><br>
-      <p>このアプリが他のアプリと決定的に違う点は２つあります。一つは今すぐ会えるということ。もう一つは「複数人」対「複数人」で出会えるということ。この２つを実現できることで、あなたの出会いの可能性を広げます。</p>
+      <p class="bold" style="border-bottom: 1px solid #806000">どんなマッチングアプリ？</p><br>
+      <p>S U G Uは、今すぐに異性との飲み会を開きたい人に向けたマッチングアプリです。他のアプリと違う点は２つあります。一つは「複数人」対「複数人」で出会えるということ。もう一つは今すぐ会えるということです。</p>
     </div>
   </div>
   <div class="why_app">
     <div class="explain">
       <p class="bold" style="border-bottom: 1px solid #806000">なぜすぐ会えるのか？</p><br>
-      <p>表示されているユーザーは「今」時間が空いて、繁華街で待機しています。投稿時間が表示されており、時間が浅いユーザーほど会える確率が上がります。これがすぐ会える理由です。</p>
+      <p>「待機中のグループ一覧」にはあなたと同じように、今すぐに飲み会を開きたいユーザーがいらっしゃいます。そんな方々が集まっているので、すぐに会うことができます。またの上の方に表示されているユーザーほど、投稿時間が浅く、会える確率が上がります。</p>
     </div>
   </div>
+</div>
+
+<div class="how_to_use">
+  <h2 class="gold">S U G Uの<br class="br320">使い方</h2>
+  <p class="exp"><span class="bold under_line">STEP1</span><br class="br"> 現在の自分の状況を<br class="br320">投稿する</p>
+  <p class="exp"><span class="bold under_line">STEP2</span><br class="br"> 他のユーザーの投稿を<br class="br375">お気に入りをする</p>
+  <p class="exp"><span class="bold under_line">STEP3</span><br class="br"> 相手も自分の投稿を<br class="br375"><br class="br320">お気に入りしたら<br class="br320">マッチング</p>
+  <p class="exp"><span class="bold under_line">STEP4</span><br class="br"> マッチしたユーザー<br class="br320">との<br class="br375">チャットルームを<br class="br320">作成</p>
+  <p class="exp"><span class="bold under_line">STEP5</span><br class="br"> チャットをスタート</p>
+  <p class="asap">早速ログインして、<br class="br320">素晴らしい出会いを見つけにいきましょう</p>
 </div>
 <% end %>
 
@@ -115,8 +129,9 @@
     <h2 class="gold">待機中の<br class="br">グループ一覧</h2>
   </div>
   <div class="explain_flex">
-    <p style="font-size:17px;">画面上部の投稿は最新の<br class="br">待機中ユーザーの情報です。<br>見逃さずにお気に入りを<br class="br">しましょう。</p>
+    <p style="font-size:17px;">上に表示されている投稿ほど<br class="br375">最新のものです。<br>見逃さずにお気に入りを<br class="br">しましょう。</p>
   </div>
+  <p class="caution">※ログイン後、お気に入りを<br class="br">することができます。</p>
   <ul class="groups">
     <% @user_infos.each do |user_info| %>
       <li class="list">
