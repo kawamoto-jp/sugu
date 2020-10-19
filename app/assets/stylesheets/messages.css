@@ -278,10 +278,17 @@
     margin-top: 30px;
   }
   
-  .m_content {
-    width: 150px;
+  .mm_right .m_content {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0;
+    width: 200px;
     font-size: 12px;
     color: #434a54;
+  }
+
+  .ano_user .m_content {
+    font-size: 12px;
   }
 
 
