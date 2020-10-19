@@ -77,10 +77,20 @@
   justify-content: space-between;
 }
 
+.left-header {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .header-title {
   color: #333;
-  font-size: 24px;
-  margin-top: 36px;
+  margin-right: 10px;
+}
+
+.header_title_info {
+  display: flex;
 }
 
 .header-button {
@@ -90,13 +100,13 @@
 .messages {
   background-color: #FAFAFA;
   height: calc(100vh - 100px - 90px);
-  padding: 46px 40px 0;
+  padding: 30px 40px 0;
   overflow: scroll;
 }
 
 .message {
   padding: 10px 0;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
 }
 
 .m_user_nickname {
@@ -172,6 +182,14 @@
 
 @media (max-width: 500px) {
 
+  .messages {
+    padding: 10px 15px 0;
+  }
+
+  .none_500 {
+    display: none;
+  }
+
   .ahh {
     display: none;
   }
@@ -200,12 +218,32 @@
     width: 100%;
   }
 
+
   .chat-header {
-    height: 50px;
+    height: 100px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: start;
+  }
+  
+  .left-header {
+    display: flex;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .header_title_info {
+    display: block;
+  }
+
+  .chat-header {
+    height: 100px;
   }
 
   .header-title {
-    margin-top: 5px;
+    font-size: 13px;
+    margin-right: 50px;
   }
 
   .m_header-name {
@@ -239,15 +277,10 @@
   .m_room-name {
     margin-top: 30px;
   }
-
-  .m_user_img img {
-    height: 70px;
-    width: 70px;
-  }
   
   .m_content {
     width: 150px;
-    font-size: 16px;
+    font-size: 12px;
     color: #434a54;
   }
 

@@ -1,7 +1,18 @@
 <div class="chat-header">
   <div class="left-header">
     <div class="header-title">
-    <%= @honnin.nickname %>
+    <%= image_tag @honnin.user_info.image.variant(resize:'80x80'), class: "m_user_img" if @honnin.user_info.image.attached? %>
+    </div>
+    <div class="header_title_info">
+      <div class="m_nickname">
+      <%= @honnin.nickname %> <span class="none_500">/</span>
+      </div>
+      <div class="m_area">
+      <%= @honnin.user_info.area.name %> <span class="none_500">/</span>
+      </div>
+      <div class="m_people_num">
+      <%= @honnin.user_info.people_num_id %> 人
+      </div>
     </div>
   </div>
 </div>

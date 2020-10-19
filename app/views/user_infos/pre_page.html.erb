@@ -46,11 +46,6 @@
     <div class="my">
       <div class="mypage_btns">
         <h2>マイページ</h2>
-        <% unless current_user.user_info.present?%>
-        <div class="enter">
-        <%= link_to '投稿する', new_user_info_path, class: 'mypage_btn' %>
-        </div><br>
-        <% end %>
         <% @user_infos.each do |user_info| %>
         <% if current_user.id == user_info.user_id %>
         <div class="edit_user_info">

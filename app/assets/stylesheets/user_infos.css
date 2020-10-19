@@ -874,7 +874,7 @@ select {
 
 }
 
-@media (max-width: 375px) {
+@media (max-width: 370px) {
   .br375 {
     display: block;
   }
