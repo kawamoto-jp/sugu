@@ -19,7 +19,7 @@
 
 .rooms {
   background-color: #7f7f7f;
-  height: calc(100% - 100px);
+  height: calc(100vh - 100px);
   padding: 0 20px;
   overflow: scroll;
 }
@@ -67,14 +67,12 @@
 /* ここから下はメインチャット */
 .chat {
   background-color: #dfdfdf;
-  width: calc(100% - 300px);
+  width: calc(100% - 200px);
 }
 
 .chat-header {
   height: 100px;
   padding: 0 40px;
-  display: flex;
-  justify-content: space-between;
 }
 
 .left-header {
@@ -99,7 +97,7 @@
 
 .messages {
   background-color: #FAFAFA;
-  height: calc(100% - 100px - 90px);
+  height: calc(100vh - 100px - 90px);
   padding: 30px 40px 0;
   overflow: scroll;
 }
@@ -223,12 +221,12 @@
     height: 100px;
     padding: 0 40px;
     display: flex;
-    justify-content: start;
+    align-items: center;
   }
   
   .left-header {
     display: flex;
-    text-align: center;
+    align-items: center;
     font-size: 14px;
     font-weight: bold;
   }

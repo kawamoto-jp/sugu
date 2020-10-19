@@ -65,6 +65,10 @@
   flex-flow: row wrap;
 }
 
+.m_rooms {
+  padding-bottom: 50px;
+}
+
 @media (max-width: 500px) {
   .matched_users {
     padding-top: 40px;

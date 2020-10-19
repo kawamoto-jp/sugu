@@ -28,12 +28,10 @@
                 <div class="m_room-name">
                 <% t = room.room_users.where.not(user_id: current_user.id).pluck(:user_id) %>
                 <% @chat_user = User.find_by(id: t) %>
-                <%= link_to @chat_user.nickname, room_messages_path(room), class: 'w' %>
+                <p class="w"><%= link_to @chat_user.nickname, room_messages_path(room), class: 'w' %></p>
                 </div>
               </div>
             <% end %>
-
-
           </div>
         </div>
       </div>
