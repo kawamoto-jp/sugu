@@ -73,6 +73,8 @@
 .chat-header {
   height: 100px;
   padding: 0 40px;
+  display: flex;
+  align-items: center;
 }
 
 .left-header {
@@ -118,6 +120,10 @@
   color: #999;
 }
 
+.my_content {
+  width: 180px;
+}
+
 .m_content {
   width: 180px;
   font-size: 16px;
@@ -125,6 +131,7 @@
   text-align: left;
   margin-right: -30px;
 }
+
 
 .form {
   background-color: #DDDDDD;
@@ -287,6 +294,14 @@
 
   .ano_user .m_content {
     font-size: 12px;
+  }
+
+  .rooms {
+    height: calc(90vh - 100px);
+  }
+
+  .messages {
+    height: calc(90vh - 100px - 90px);
   }
 
 
