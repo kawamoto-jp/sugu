@@ -19,7 +19,7 @@
 
 .rooms {
   background-color: #7f7f7f;
-  height: calc(100vh - 100px);
+  height: calc(100% - 100px);
   padding: 0 20px;
   overflow: scroll;
 }
@@ -99,7 +99,7 @@
 
 .messages {
   background-color: #FAFAFA;
-  height: calc(100vh - 100px - 90px);
+  height: calc(100% - 100px - 90px);
   padding: 30px 40px 0;
   overflow: scroll;
 }
