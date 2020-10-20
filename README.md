@@ -40,7 +40,7 @@ SUGU
   
 ## レスポンシブデザイン  
 #### 全画面、レスポンシブデザインに対応しております。
-<img src="oriapp_responsive.gif" width="300" height="533">  
+<img src="oriapp_responsive2.gif" width="300" height="533">  
 
 
 
