@@ -19,7 +19,7 @@ SUGU
 
 # DEMO
 ## トップページ  
-<img src="oriapp_top.gif" width="533" height="266">  
+<img src="oriapp_top2.gif" width="533" height="266">  
 
 ## お気に入り機能  
 #### 非同期通信でお気に入りボタンを押せるようにしています。  
