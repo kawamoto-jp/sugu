@@ -90,7 +90,7 @@ Ruby on Rails
 今後実装したい機能は、チャットルームの中のメッセージを非同期通信させることです。  
 
 # ER図  
-<img sec="oriapp_er.png" width="533" height="266">  
+<img src="oriapp_er.png" width="533" height="266">  
 
 # DB設計
 ### users テーブル
