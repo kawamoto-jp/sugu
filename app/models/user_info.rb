@@ -14,9 +14,21 @@ class UserInfo < ApplicationRecord
 
   with_options presence: true do
     validates :text
-    validates :image
+    # validates :image
     validates :area
     validates :people_num
+  end
+
+  validate :image_presence
+
+  def image_presence
+    if image.attached?
+      if !image.content_type.in?(%('image/jpeg image/png'))
+        errors.add(:image, 'にはjpegまたはpngファイルを添付してください')
+      end
+    else
+      errors.add(:image, 'ファイルを添付してください')
+    end
   end
 
   def favorited_by?(user)
