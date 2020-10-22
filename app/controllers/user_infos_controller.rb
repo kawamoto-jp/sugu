@@ -1,5 +1,6 @@
 class UserInfosController < ApplicationController
   before_action :search_user_info, only: [:index, :search]
+  before_action :authenticate_user!, except: [:index, :search]
 
   def index
     @promotion_male = UserInfo.joins(:user).where(users: { gender: "男"}).count
