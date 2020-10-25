@@ -5,10 +5,9 @@ SUGU
 このアプリでは、「今」時間が空いている異性とすぐに合コンをすることができるアプリです。
 
 # 本番環境
-デプロイ先 : https://sugu-sugu.herokuapp.com/
-
-テストアカウント① &nbsp;**email** : test1@test.test &nbsp;  **password** : aaaa11
-
+[アプリはこちらから](http://54.249.144.132/)  
+  
+テストアカウント① &nbsp;**email** : test1@test.test &nbsp;  **password** : aaaa11  
 テストアカウント② &nbsp;**email** : test2@test.test &nbsp;  **password** : aaaa11
 
 
