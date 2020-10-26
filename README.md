@@ -19,8 +19,14 @@ SUGU
 # 本番環境
 [アプリはこちらから](http://54.249.144.132/)  
   
-テストアカウント① &nbsp;**email** : test1@test.test &nbsp;  **password** : aaaa11  
-テストアカウント② &nbsp;**email** : test2@test.test &nbsp;  **password** : aaaa11
+テストアカウント①(男) &nbsp;**email** : test1@test.test &nbsp;  **password** : aaaa11  
+テストアカウント②(女) &nbsp;**email** : test2@test.test &nbsp;  **password** : aaaa11  
+※テストアカウント②については、合コン情報を投稿済みです。  
+やっていただきたいこと
+⑴テストアカウント①の合コン情報を投稿してください。  
+⑵テストアカウント①（太郎）とテストアカウント②（花子）で相互お気に入りをしてください。  
+⑶どちらかのアカウントで、マイページからチャットルームを作成してください。  
+⑷これでお互いでチャットをすることができるようになります。
 
 
 # 制作背景
