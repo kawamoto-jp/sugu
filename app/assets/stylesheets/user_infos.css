@@ -730,6 +730,11 @@ select {
     width: 220px;
   }
 
+  .i {
+    height: 150px;
+    width: 220px;
+  }
+
   .top_page {
     padding: 10px 0;
   }
