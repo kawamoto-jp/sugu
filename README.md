@@ -5,10 +5,9 @@ SUGU
 このアプリでは、「今」時間が空いている異性とすぐに合コンをすることができるアプリです。
 
 # 本番環境
-デプロイ先 : https://sugu-sugu.herokuapp.com/
-
-テストアカウント① &nbsp;**email** : test1@test.test &nbsp;  **password** : aaaa11
-
+[アプリはこちらから](http://54.249.144.132/)  
+  
+テストアカウント① &nbsp;**email** : test1@test.test &nbsp;  **password** : aaaa11  
 テストアカウント② &nbsp;**email** : test2@test.test &nbsp;  **password** : aaaa11
 
 
@@ -72,17 +71,13 @@ SUGU
 このアプリでのマッチングの定義は、「ユーザー達がお互いの投稿した情報に対して、そのお互い同士でお気に入りをする」ということです。Twitterで例えると、ユーザーAがユーザーBのツイートを、ユーザーBがユーザーAのツイートにお気に入りをした状態です。これをコードで定義をすることに注力しました。具体的には、DBからデータを取り出す方法をいくつも調べ、何個も実践しました。  
 その結果、自力でマッチングさせることができ、自信を持つことができました。
 # 使用技術(開発環境)
-【言語】
-HTML5、CSS3、Ruby、JavaScript  
-
-【OS】
-macOS  
-
-【DB】
-Sequel Pro  
-
-【フレームワーク】
-Ruby on Rails
+- フロントエンド（HTML5、CSS3、Ruby、JavaScript）
+- バックエンド（Ruby on Rails6.0）
+- テスト（RSpec）
+- Webサーバ（nginx, unicorn）
+- データベース（MySQL）
+- AWS(EC2, S3)
+- 開発環境（MacOS, VScode, Git, GitHub）  
 
 # 課題や今後実装したい機能
 課題は、毎回チャットルームを作成しなければいけないことです。  
